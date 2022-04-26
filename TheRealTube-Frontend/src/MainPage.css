@@ -1,0 +1,54 @@
+.header{
+    display: inline-block;
+    background-color: gray;
+    height: 55px;
+    width: 100%;
+}
+.logo{
+    text-align: left;
+    font-size: 1cm;
+    float: left;
+}
+.search4{
+    display: inline-block;
+    /* position: fixed; */
+    padding-left: 20%;
+    
+}
+
+.logNreg{
+    /* display: inline-block; */
+    position: static;
+    margin-left: auto;
+    margin-right: 0;
+    float: right;
+}
+
+input[type="text"] {
+    padding: 10px 20px;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    height: auto;
+    width: 300px;
+  }
+
+  input[type="button"] {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    cursor: pointer;
+    font-size: 18px;
+    background: #0174d2;
+    border: 2px solid #054b85;
+    color: #fff;
+    padding: 10px 20px;
+
+  }
+
+  .row{
+    display: inline-flex;
+    width: 100%;
+    margin: 2%;
+  }
+
+  .films{
+    position: flex;
+  }
