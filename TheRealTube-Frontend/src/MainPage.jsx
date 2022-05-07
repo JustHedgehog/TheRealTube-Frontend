@@ -9,7 +9,7 @@ const header = (
 <div className="header">
     <label className="logo">The Real Tube</label>
     <div className="search4">
-        <input type="text"/>
+        <input type="text" name="textSearch"/>
         <input type="button" value="Wyszukaj" className="search"/>
     </div>
     <div className="logNreg">

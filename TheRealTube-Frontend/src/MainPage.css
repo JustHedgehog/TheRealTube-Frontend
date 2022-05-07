@@ -24,7 +24,7 @@
     float: right;
 }
 
-input[type="text"] {
+input[name="textSearch"] {
     padding: 10px 20px;
     border: 1px solid rgba(0, 0, 0, 0.2);
     height: auto;

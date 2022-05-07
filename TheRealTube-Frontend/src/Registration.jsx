@@ -52,7 +52,7 @@ export default function Registration() {
           <input type="password" name="pass" required />
         </div>
         <div className="button-container">
-          <input type="submit" />
+          <input type="submit" value="Register" />
         </div>
       </form>
     </div>
