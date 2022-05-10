@@ -1,0 +1,94 @@
+@import url('https://fonts.googleapis.com/css?family=Work+Sans:400,600');
+body {
+	margin: 0;
+	background: #222;
+	font-family: 'Work Sans', sans-serif;
+	font-weight: 800;
+}
+
+.container {
+	width: 100%;
+    height: 92%;
+	margin: 0 auto;
+
+}
+
+header {
+  background: #55d6aa;
+  height: 70px;
+}
+
+header::after {
+  content: '';
+  display: table;
+  clear: both;
+}
+
+.logo {
+  display: inline-block;
+  margin-top: 1px;
+  padding: 5px;
+}
+
+nav {
+  float: right;
+  margin-right: 20px;
+}
+
+nav ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+nav li {
+  display: inline-block;
+  margin-left: 70px;
+  padding-top: 25px;
+
+  position: relative;
+}
+
+nav a {
+  color: #444;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 14px;
+}
+
+nav a:hover {
+  color: #000;
+}
+
+nav a::before {
+  content: '';
+  display: block;
+  height: 5px;
+  background-color: #444;
+
+  position: absolute;
+  top: 0;
+  width: 0%;
+
+  transition: all ease-in-out 250ms;
+}
+
+nav a:hover::before {
+  width: 100%;
+}
+
+.searchBox{
+  display: inline-block;
+  height: 50px;
+  margin-left: 50px;
+  padding: 4px 20px 4px 50px;
+}
+
+.searchInput{
+  padding: auto;
+}
+
+.col{
+  padding-left: 30%;
+  padding-top: 3%;
+}

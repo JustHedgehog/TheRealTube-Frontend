@@ -5,7 +5,7 @@ import "./VideoContainer.css";
 export default function VideoContainer(){
 
         return (
-            <div className="container">
+            <div className="filmContainer">
                 <div className="miniature">
                     <img alt="Miniaturka"/>
                 </div>
