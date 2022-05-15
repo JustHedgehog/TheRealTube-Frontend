@@ -9,9 +9,7 @@
     background-color: #f8f9fd;
   }
   
-  input[type="text"],
-  input[type="email"],
-  input[type="password"] {
+  .registerInputs {
     height: 25px;
     border: 1px solid rgba(0, 0, 0, 0.2);
   }
@@ -26,7 +24,7 @@
     padding: 10px 20px;
   }
   
-  input[type="submit"]:hover {
+  .registerSubmit:hover {
     background: #0b0964;
   }
   

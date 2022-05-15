@@ -49,20 +49,20 @@ export default function Registration() {
       <form onSubmit={handleSubmit}>
         <div className="input-container">
           <label>Email: </label>
-          <input type="email" name="email" required />
+          <input className='registerInputs' type="email" name="email" required />
           
         </div>
         <div className="input-container">
           <label>Username: </label>
-          <input type="text" name="uname" required />
+          <input className='registerInputs' type="text" name="uname" required />
         </div>
         <div className="input-container">
           <label>Password: </label>
-          <input type="password" name="pass" required />
+          <input className='registerInputs' type="password" name="pass" required />
           {renderErrorMessage("mess")}
         </div>
         <div className="button-container">
-          <input type="submit" value="Register" />
+          <input className='registerSubmit' type="submit" value="Register" />
         </div>
       </form>
     </div>

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useSearchParams } from "react-router-dom";
 
 import "./SearchPage.css";
-import VideoContainer from "./VideoContainer.jsx";
+import Navbar from "./components/navbar";
 
  export default function MainPage(){
      
@@ -34,17 +34,12 @@ const header = (
 
 const filmy = (
   <div className="col">
-  <VideoContainer className="films"/>
-  <VideoContainer className="films"/>
-  <VideoContainer className="films"/>
-  <VideoContainer className="films"/>
   </div>
   );
 
     return (
         <div>
-            {header}
-            {filmy}
+            <Navbar/>
         </div>
        
       );

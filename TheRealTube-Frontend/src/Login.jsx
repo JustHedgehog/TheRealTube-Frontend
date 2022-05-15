@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import AuthService from "./services/AuthService";
 import   {Navigate }  from 'react-router-dom';
 import "./Login.css";
+import Navbar from "./components/navbar";
 
 function Login(){
     // React States
@@ -43,25 +44,28 @@ function Login(){
       <form onSubmit={handleSubmit}>
         <div className="input-container">
           <label>Username: </label>
-          <input type="text" name="uname" required />
+          <input className="loginInputs" type="text" name="uname" required />
         </div>
         <div className="input-container">
           <label>Password: </label>
-          <input type="password" name="pass" required />
+          <input className="loginInputs" type="password" name="pass" required />
           {renderErrorMessage("mess")}
         </div>
         <div className="button-container">
-          <input type="submit" value="Sign in"/>
+          <input className="loginSubmit" type="submit" value="Sign in"/>
         </div>
       </form>
     </div>
   );
 
   return (
-    <div className="app">
-      <div className="login-form">
-        <div className="title">Sign In</div>
-        {isSubmitted ? <Navigate to='/'/> : renderForm}
+    <div>
+      <Navbar/>
+      <div className="app">
+        <div className="login-form">
+          <div className="title">Sign In</div>
+          {isSubmitted ? <Navigate isSubmitted={isSubmitted} to='/'/> : renderForm}
+        </div>
       </div>
     </div>
   );
