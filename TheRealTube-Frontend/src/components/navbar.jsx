@@ -1,15 +1,13 @@
 import React, { useState } from "react";
-
+import AuthService from "../services/auth.service";
+import Niezalogowany from "./niezalogowany";
+import Zalogowany from "./zalogowany";
 import "./navbar.css";
-import test2 from "./test2";
-import test from "./test";
-import Login from "../Login";
-import Registration from "../Registration";
 
- export default function Navbar(isSubmited, props){
+
+ export default function Navbar(props){
     const [active, setActive] = useState("nav_menu");
     const [toggleIcon, setToggleIcon] = useState("nav_toggler");
-
 
     const navToggle = () => {
         active === "nav_menu" 
@@ -32,13 +30,9 @@ import Registration from "../Registration";
                         <i className="gg-search"></i>
                     </a>
                 </div>
-                </li>
-                <li className="nav_item">
-                    <a href="/Login" className="nav_link">Zaloguj się</a>
-                </li>
-                <li className="nav_item">
-                    <a href="/Registration" className="nav_link">Zarejestruj się</a>
-                </li>
+            </li>
+            {AuthService.getCurrentUser() ? <Zalogowany></Zalogowany> : <Niezalogowany></Niezalogowany>}
+
             </ul>
             <div onClick= {navToggle} className={toggleIcon}>
                 <div className="line1"></div>

@@ -7,7 +7,7 @@ import Input from "react-validation/build/input";
 import CheckButton from "react-validation/build/button";
 import AuthService from "./services/auth.service";
 
-function Login(){
+export default function Login(){
 
   let navigate = useNavigate();
   const form = useRef();
@@ -113,7 +113,7 @@ function Login(){
 
   return (
     <div>
-      <Navbar/>
+      <Navbar></Navbar>
       <div className="app">
         <div className="login-form">
           <div className="title">Sign In</div>
@@ -123,5 +123,3 @@ function Login(){
     </div>
   );
 }
-
-export default Login
