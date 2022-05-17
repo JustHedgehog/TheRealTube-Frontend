@@ -6,6 +6,7 @@ import CheckButton from "react-validation/build/button";
 import { isEmail } from "validator";
 import AuthService from "./services/auth.service";
 import { useNavigate } from 'react-router-dom';
+import Navbar from './components/navbar';
 
 export default function Registration() {
 
@@ -135,12 +136,15 @@ export default function Registration() {
   );
 
     return (
+      <div>
+        <Navbar></Navbar>
         <div className="registration-app">
           <div className="registration-form">
             <div className="title">Register</div>
               {renderForm}
           </div>
         </div>
+      </div>
       );
     
 }
