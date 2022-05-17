@@ -1,60 +1,113 @@
-import React, { useState } from "react";
-import AuthService from "./services/AuthService";
-import   {Navigate }  from 'react-router-dom';
+import React, { useState,useRef } from "react";
+import   {Navigate, useNavigate }  from 'react-router-dom';
 import "./Login.css";
 import Navbar from "./components/navbar";
+import Form from "react-validation/build/form";
+import Input from "react-validation/build/input";
+import CheckButton from "react-validation/build/button";
+import AuthService from "./services/auth.service";
 
 function Login(){
-    // React States
-  const [errorMessages, setErrorMessages] = useState({});
-  const [isSubmitted, setIsSubmitted] = useState(false);
 
+  let navigate = useNavigate();
+  const form = useRef();
+  const checkBtn = useRef();
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [message, setMessage] = useState("");
 
-  const handleSubmit = (event) => {
-    //Prevent page reload
-    event.preventDefault();
-
-    var uname= document.forms[0][0].value;
-    var pass= document.forms[0][1].value;
-
-    AuthService.login(uname, pass).then(
-      () => {
-          setIsSubmitted(true);
-      },
-      error => {
-        const consoleMessage =error.message;
-        console.log(consoleMessage);
-        const retMessage ="Wrong username or password!";
-        setErrorMessages({ name: "mess", message: retMessage });        
-      }
-    );
- 
+  const passwordValidation = (value) => {
+    if (!value) {
+      return (
+        <div>
+          Pole jest wymagane!
+        </div>
+      );
+    }
+    if(value.length() > 120)
+    {
+      return (
+        <div>
+          Hasło za długie!
+        </div>
+      )
+    }
   };
 
-  // Generate JSX code for error message
-  const renderErrorMessage = (name) =>
-    name === errorMessages.name && (
-      <div className="error">{errorMessages.message}</div>
-    );
+  const usernameValidation = (value) =>{
+    if (!value) {
+      return (
+        <div>
+          Pole jest wymagane!
+        </div>
+      );
+    }
+    if(value.length() > 20)
+    {
+      return (
+        <div>
+          Za długa nazwa użytkownika!
+        </div>
+      )
+    }
+  };
 
-  // JSX code for login form
-  // After isSubmitted you can add redirection to next view 
+
+    const onChangeUsername = (e) => {
+      const username = e.target.value;
+      setUsername(username);
+    };
+    const onChangePassword = (e) => {
+      const password = e.target.value;
+      setPassword(password);
+    };
+
+    const handleLogin = (e) => {
+      e.preventDefault();
+      setMessage("");
+      form.current.validateAll();
+      if (checkBtn.current.context._errors.length === 0) {
+        AuthService.login(username, password).then(
+          () => {
+            navigate("/");
+            window.location.reload();
+          },
+          (error) => {
+            const resMessage =
+              (error.response &&
+                error.response.data &&
+                error.response.data.message) ||
+              error.message ||
+              error.toString();
+            setMessage(resMessage);
+          }
+        );
+      }
+    }
+
   const renderForm = (
     <div className="form">
-      <form onSubmit={handleSubmit}>
+      <Form onSubmit={handleLogin} ref={form}>
         <div className="input-container">
           <label>Username: </label>
-          <input className="loginInputs" type="text" name="uname" required />
+          <Input className="loginInputs" type="text" name="username" value={username} onChange={onChangeUsername} validations={[usernameValidation]}/>
         </div>
         <div className="input-container">
           <label>Password: </label>
-          <input className="loginInputs" type="password" name="pass" required />
-          {renderErrorMessage("mess")}
+          <Input className="loginInputs" type="password" name="password" value={password} onChange={onChangePassword} validations={[passwordValidation]} />
         </div>
+        {message && (
+            <div>
+              <div>
+                {message}
+              </div>
+            </div>
+          )}
         <div className="button-container">
-          <input className="loginSubmit" type="submit" value="Sign in"/>
+          <input className="loginSubmit" type="submit" value="Zaloguj się"/>
         </div>
-      </form>
+        <CheckButton style={{ display:"none" }} ref={checkBtn} />
+      </Form>
     </div>
   );
 
@@ -64,7 +117,7 @@ function Login(){
       <div className="app">
         <div className="login-form">
           <div className="title">Sign In</div>
-          {isSubmitted ? <Navigate isSubmitted={isSubmitted} to='/'/> : renderForm}
+          {renderForm}
         </div>
       </div>
     </div>

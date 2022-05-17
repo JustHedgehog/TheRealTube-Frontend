@@ -1,7 +1,7 @@
 import './Registration.css';
 import React, { useState } from 'react';
-import AuthService from "./services/AuthService";
 import { useNavigate} from 'react-router-dom';
+import AuthService from './services/auth.service';
 
 export default function Registration() {
     // React States
