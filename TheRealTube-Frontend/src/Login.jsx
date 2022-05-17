@@ -73,12 +73,15 @@ export default function Login(){
             window.location.reload();
           },
           (error) => {
-            const resMessage =
+            var resMessage =
               (error.response &&
                 error.response.data &&
                 error.response.data.message) ||
               error.message ||
               error.toString();
+              if(resMessage==="Request failed with status code 401"){
+                resMessage="Zła nazwa użytkownika lub hasło!"
+              }
             setMessage(resMessage);
           }
         );
@@ -88,22 +91,22 @@ export default function Login(){
   const renderForm = (
     <div className="form">
       <Form onSubmit={handleLogin} ref={form}>
-        <div className="input-container">
+        <div className="input-container-login">
           <label>Username: </label>
           <Input className="loginInputs" type="text" name="username" value={username} onChange={onChangeUsername} validations={[usernameValidation]}/>
         </div>
-        <div className="input-container">
+        <div className="input-container-login">
           <label>Password: </label>
           <Input className="loginInputs" type="password" name="password" value={password} onChange={onChangePassword} validations={[passwordValidation]} />
         </div>
         {message && (
             <div>
-              <div>
+              <div className="error">
                 {message}
               </div>
             </div>
           )}
-        <div className="button-container">
+        <div className="button-container-login">
           <input className="loginSubmit" type="submit" value="Zaloguj się"/>
         </div>
         <CheckButton style={{ display:"none" }} ref={checkBtn} />
@@ -116,7 +119,7 @@ export default function Login(){
       <Navbar></Navbar>
       <div className="app">
         <div className="login-form">
-          <div className="title">Sign In</div>
+          <div className="titleLogin">Logowanie</div>
           {renderForm}
         </div>
       </div>

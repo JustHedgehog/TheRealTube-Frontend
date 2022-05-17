@@ -10,8 +10,9 @@
   }
   
   .loginInputs {
-    height: 25px;
+    height: 30px;
     border: 1px solid rgba(0, 0, 0, 0.2);
+    width: 250px;
   }
   
   .loginSubmit {
@@ -28,7 +29,7 @@
     background: #0b0964;
   }
   
-  .button-container {
+  .button-container-login {
     display: flex;
     justify-content: center;
   }
@@ -51,16 +52,16 @@
     font-weight: bolder;
   }
   
-  .title {
+  .titleLogin {
     font-size: 28px;
     margin-bottom: 20px;
     font-weight: bolder;
   }
   
-  .input-container {
+  .input-container-login {
     display: flex;
     flex-direction: column;
     gap: 8px;
-    margin: 10px;
+    margin: 5px;
     font-weight: bolder;
   }

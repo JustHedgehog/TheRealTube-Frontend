@@ -25,7 +25,7 @@ import "./navbar.css";
             <ul className={active}>
             <li className="nav_item">
                 <div class="search-box">
-                    <input className="search-txt" type="text" name="" placeholder="Type to search"/>
+                    <input className="search-txt" type="text" name="" placeholder="Szukaj"/>
                     <a className="search-btn" href="/Search">
                         <i className="gg-search"></i>
                     </a>

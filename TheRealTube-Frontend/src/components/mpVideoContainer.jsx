@@ -20,7 +20,7 @@ export default function mpVideoContainer(props){
             <div className="aboutVideo">
                 <img src={avatar} alt="avatar" className="avatar"/>
                 <div className="aboutText">
-                <a className="title" href="#">{wideo.name}</a>
+                <a className="titleVideo" href="#">{wideo.name}</a>
                 <a className="canalName" href="#">Poradniki instalacyjne</a>
                 </div>
                 

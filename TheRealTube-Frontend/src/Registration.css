@@ -10,25 +10,13 @@
   }
   
   .registerInputs {
-    height: 25px;
+    height: 30px;
     border: 1px solid rgba(0, 0, 0, 0.2);
+    width: 250px;
   }
   
-  input[type="submit"] {
-    margin-top: 10px;
-    cursor: pointer;
-    font-size: 18px;
-    background: #0174d2;
-    border: 1px solid #0174d2;
-    color: #fff;
-    padding: 10px 20px;
-  }
   
-  .registerSubmit:hover {
-    background: #0b0964;
-  }
-  
-  .button-container {
+  .button-container-register {
     display: flex;
     justify-content: center;
   }
@@ -51,21 +39,21 @@
     font-weight: bolder;
   }
   
-  .title {
+  .titleRegister {
     font-size: 28px;
     margin-bottom: 20px;
     font-weight: bolder;
   }
   
-  .input-container {
+  .input-container-register {
     display: flex;
     flex-direction: column;
     gap: 8px;
-    margin: 10px;
+    margin: 5px;
     font-weight: bolder;
   }
 
-  .btn {
+  .registerSubmit {
     margin-top: 10px;
     cursor: pointer;
     font-size: 18px;
@@ -75,6 +63,6 @@
     padding: 10px 20px;
   }
   
-  .btn:hover {
+  .registerSubmit:hover {
     background: #0b0964;
   }

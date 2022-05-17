@@ -96,39 +96,48 @@ export default function Registration() {
     <div className="form">
       <Form onSubmit={handleRegister} ref={form}>
 
-        <div className="input-container">
+        <div className="input-container-register">
           <label>Email: </label>
           <Input
                   type="text"
                   name="email"
+                  className="registerInputs"
                   value={email}
                   onChange={onChangeEmail}
                   validations={[required, validEmail]}
                 />
         </div>
-        <div className="input-container">
+        <div className="input-container-register">
           <label>Username: </label>
           <Input
                   type="text"
-                  className="form-control"
                   name="username"
+                  className="registerInputs"
                   value={username}
                   onChange={onChangeUsername}
                   validations={[required, vusername]}
                 />
         </div>
-        <div className="input-container">
+        <div className="input-container-register">
           <label>Password: </label>
           <Input
                   type="password"
                   name="password"
+                  className="registerInputs"
                   value={password}
                   onChange={onChangePassword}
                   validations={[required, vpassword]}
                 />
         </div>
-        <div className="button-container">
-          <input className='registerSubmit' type="submit" value="Register" />
+        {message && (
+            <div>
+              <div className="error">
+                {message}
+              </div>
+            </div>
+          )}
+        <div className="button-container-register">
+          <input className='registerSubmit' type="submit" value="Zarejestruj" />
         </div>
         <CheckButton style={{ display: "none" }} ref={checkBtn} />
       </Form>
@@ -140,7 +149,7 @@ export default function Registration() {
         <Navbar></Navbar>
         <div className="registration-app">
           <div className="registration-form">
-            <div className="title">Register</div>
+            <div className="titleRegister">Rejestracja</div>
               {renderForm}
           </div>
         </div>
