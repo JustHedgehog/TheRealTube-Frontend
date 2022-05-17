@@ -24,7 +24,7 @@ function Login(){
         </div>
       );
     }
-    if(value.length() > 120)
+    if(value.length > 120)
     {
       return (
         <div>
@@ -42,7 +42,7 @@ function Login(){
         </div>
       );
     }
-    if(value.length() > 20)
+    if(value.length > 20)
     {
       return (
         <div>
@@ -122,8 +122,6 @@ function Login(){
       </div>
     </div>
   );
-
-    
 }
 
 export default Login
