@@ -9,7 +9,6 @@ export default function mpVideoContainer(props){
 
     const wideo = props.wideo
 
-    console.log(wideo)
     return (
         <div className="container">
             <div className="miniatureContainer">

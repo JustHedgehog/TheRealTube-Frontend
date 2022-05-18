@@ -7,7 +7,7 @@ import Videos from "./services/video.service";
 
  export default function MainPage(){
 
-    var [listaVideo,setListaVideo] = useState(null);
+    const [listaVideo,setListaVideo] = useState([]);
 
     useEffect(()=>{
         Videos.getAllVideos().then(
@@ -15,7 +15,7 @@ import Videos from "./services/video.service";
                 setListaVideo(response.data)
             }
         )
-    })
+    },[])
 
     return (
         <div>
