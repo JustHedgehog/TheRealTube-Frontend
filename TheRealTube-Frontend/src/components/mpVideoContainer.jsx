@@ -1,26 +1,34 @@
-import React, {useState} from "react";
-import { BrowserRouter as Router, Link } from "react-router-dom";
+import React, {useState, useRef} from "react";
+import { BrowserRouter as Router, Link, useNavigate } from "react-router-dom";
 import miniature from "../assets/winxp.jpg";
 import avatar from "../assets/psiun.jpg";
 
 import "./mpVideoContainer.css";
 
-export default function mpVideoContainer(props){
+export default function MpVideoContainer(props){
 
     const wideo = props.wideo
+    const vid = useRef(null);
+    let navigate = useNavigate();
+    function CoursesPage (){
+        vid.current.play();
+        navigate(`/Play/${wideo.id}`);
+        
+        
+    }
 
     return (
         <div className="container">
             <div className="miniatureContainer">
-                <video className="miniature" alt="miniature" controls>
+                <video className="miniature" ref={vid} alt="miniature" controls onClick={CoursesPage}>
                     <source src={wideo.fileurl} type="video/mp4"></source>
                 </video>
             </div>
             <div className="aboutVideo">
                 <img src={avatar} alt="avatar" className="avatar"/>
                 <div className="aboutText">
-                <a className="titleVideo" href="#">{wideo.name}</a>
-                <a className="canalName" href="#">Poradniki instalacyjne</a>
+                <Link className="titleVideo"  to={{pathname: `/Play/${wideo.id}`}}>{wideo.name}</Link>
+                <a className="canalName" href="">Poradniki instalacyjne</a>
                 </div>
                 
             </div>

@@ -17,7 +17,7 @@ body{
 
 .logo{
     text-decoration: none;
-    color: darkgray;
+    color: white;
     text-transform: uppercase;
     font-weight: bold;
     font-size: 30px;
@@ -46,7 +46,7 @@ body{
 
 .nav_item a{
     text-decoration: none;
-    color: darkgray;
+    color: white;
 }
 
 .nav_item input{
@@ -58,7 +58,7 @@ body{
     width: 20px;
     height: 2px;
     margin: 4px;
-    background: darkgray;
+    background: white;
     transition: 0.4s ease-in;
 }
 
