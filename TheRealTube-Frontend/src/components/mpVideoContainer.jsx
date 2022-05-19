@@ -16,11 +16,23 @@ export default function MpVideoContainer(props){
         
         
     }
+    var timer=0;
+
+    function stopMovie () {
+        
+        clearTimeout(timer);
+        vid.current.pause();
+      }
+      
+    function playMovie (){
+        timer = setTimeout(()=>{vid.current.play();},500);
+        
+      }
 
     return (
         <div className="container">
             <div className="miniatureContainer">
-                <video className="miniature" ref={vid} alt="miniature" controls onClick={CoursesPage}>
+                <video className="miniature" ref={vid} alt="miniature"  onClick={CoursesPage} onMouseOver={playMovie} onMouseOut={stopMovie} muted="muted">
                     <source src={wideo.fileurl} type="video/mp4"></source>
                 </video>
             </div>
