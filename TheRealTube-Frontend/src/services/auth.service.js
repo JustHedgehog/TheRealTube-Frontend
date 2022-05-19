@@ -1,4 +1,5 @@
 import axios from "axios";
+
 const API_URL = "https://real-tube.herokuapp.com/api/auth/";
 const register = (username, email, password,role) => {
   return axios.post(API_URL + "signup", {

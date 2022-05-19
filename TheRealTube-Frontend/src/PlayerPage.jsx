@@ -9,7 +9,6 @@ import "./PlayerPage.css";
 export default function PlayerPage(props){
 
     const {id} =useParams();
-    console.log(id);
 
     const [video,setVideo] = useState([]);
 
@@ -19,11 +18,9 @@ export default function PlayerPage(props){
                 setVideo(response.data)
             }
         )
-    },[])
-    console.log(video);
+    },[id])
 
     const urlVideo =video.fileurl;
-    console.log(urlVideo);
 
     return (
         <div className="playerContainer">

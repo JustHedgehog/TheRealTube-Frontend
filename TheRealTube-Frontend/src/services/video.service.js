@@ -7,7 +7,6 @@ const getAllVideos = () => {
 }
 
 const getVideo = (id) => {
-    console.log(API_URL+'/'+id);
     return axios.get(API_URL+'/'+id, {headers: authHeader()})    
 }
 
