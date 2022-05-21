@@ -1,8 +1,9 @@
 @import url('https://css.gg/search.css');
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
 
+
 .player{
-    margin-top: 1cm;
+    margin-top: 0cm;
     margin-left: 3cm;
     width: 1237px;
     height: 696px;
@@ -33,12 +34,10 @@
     -webkit-box-orient: vertical;
     overflow: hidden;
     text-decoration: none;
-    color: black;
+    color: white;
 }
 
 .canalNamePlayer{
-    
-
     margin-bottom: 20px;
     max-width: 1200px;
     font-size: 14px;
@@ -47,7 +46,7 @@
     overflow: hidden;
     text-overflow: ellipsis;
     text-decoration: none;
-    color: #6b7685;
+    color: #4b6c99;
 }
 
 .avatarPlayer{
@@ -57,5 +56,9 @@
     margin-right: 10px;
 }
 .playerContainer{
-    background-color: whitesmoke;
+    background-color: rgb(43, 39, 39);
+    height: 100vh;
+    width: 100%;
+    padding-top: 10vh;
+    
 }

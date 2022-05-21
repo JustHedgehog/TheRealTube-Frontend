@@ -88,16 +88,48 @@ export default function Login(){
       }
     }
 
+  //====Mateo's Form====
+  //
+  // const renderForm = (
+  //   <div className="form">
+  //     <Form onSubmit={handleLogin} ref={form}>
+  //       <div className="input-container-login">
+  //         <label>Username: </label>
+  //         <Input className="loginInputs" type="text" name="username" value={username} onChange={onChangeUsername} validations={[usernameValidation]}/>
+  //       </div>
+  //       <div className="input-container-login">
+  //         <label>Password: </label>
+  //         <Input className="loginInputs" type="password" name="password" value={password} onChange={onChangePassword} validations={[passwordValidation]} />
+  //       </div>
+  //       {message && (
+  //           <div>
+  //             <div className="error">
+  //               {message}
+  //             </div>
+  //           </div>
+  //         )}
+  //       <div className="button-container-login">
+  //         <input className="loginSubmit" type="submit" value="Zaloguj się"/>
+  //       </div>
+  //       <CheckButton style={{ display:"none" }} ref={checkBtn} />
+  //     </Form>
+  //   </div>
+  // );
+
+
   const renderForm = (
     <div className="form">
-      <Form onSubmit={handleLogin} ref={form}>
+      <h1>Logowanie</h1>
+      <Form className="loginForm" onSubmit={handleLogin} ref={form}>
         <div className="input-container-login">
-          <label>Username: </label>
-          <Input className="loginInputs" type="text" name="username" value={username} onChange={onChangeUsername} validations={[usernameValidation]}/>
+        <input type="text" name="username" value={username} onChange={onChangeUsername} validations={[usernameValidation]} required/>
+          <span></span>
+          <label>Username</label>
         </div>
         <div className="input-container-login">
-          <label>Password: </label>
-          <Input className="loginInputs" type="password" name="password" value={password} onChange={onChangePassword} validations={[passwordValidation]} />
+        <input type="password" name="password" value={password} onChange={onChangePassword} validations={[passwordValidation]} required/>
+          <span></span>
+          <label>Password</label>
         </div>
         {message && (
             <div>
@@ -106,8 +138,9 @@ export default function Login(){
               </div>
             </div>
           )}
-        <div className="button-container-login">
-          <input className="loginSubmit" type="submit" value="Zaloguj się"/>
+        <input className="loginSubmit" type="submit" value="Zaloguj się"/>
+        <div className="signup_link">
+          Nie masz konta? <a href="/Registration">Zarejestruj się</a>
         </div>
         <CheckButton style={{ display:"none" }} ref={checkBtn} />
       </Form>

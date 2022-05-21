@@ -4,10 +4,10 @@ import Niezalogowany from "./niezalogowany";
 import Zalogowany from "./zalogowany";
 import "./navbar.css";
 
-
  export default function Navbar(props){
     const [active, setActive] = useState("nav_menu");
     const [toggleIcon, setToggleIcon] = useState("nav_toggler");
+
 
     const navToggle = () => {
         active === "nav_menu" 
@@ -19,13 +19,19 @@ import "./navbar.css";
         : setToggleIcon("nav_toggler")
     };
 
+    const handleKeyDown = (event) => {
+        if(event.key === 'Enter'){
+            window.location.href = "/Search";
+        }
+    }
+
     return (
         <nav className="nav">
-            <a href="/" className="logo">The Real Tube</a>
+            <a href="/" className="logo">Real Tube</a>
             <ul className={active}>
             <li className="nav_item">
                 <div class="search-box">
-                    <input className="search-txt" type="text" name="" placeholder="Szukaj"/>
+                    <input className="search-txt" type="text" name="" placeholder="Szukaj" onKeyDown={handleKeyDown}/>
                     <a className="search-btn" href="/Search">
                         <i className="gg-search"></i>
                     </a>

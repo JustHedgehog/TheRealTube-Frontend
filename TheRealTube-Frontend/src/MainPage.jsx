@@ -20,10 +20,11 @@ import Videos from "./services/video.service";
     return (
         <div>
             <Navbar/>
-            <div className="films">
-                {listaVideo && listaVideo.map(video => <MpVideoContainer key={video.objectKey} wideo={video}></MpVideoContainer>)}
-            </div>
-            
+            <div className="mainPageBody">
+                <div className="films">
+                    {listaVideo && listaVideo.map(video => <MpVideoContainer key={video.objectKey} wideo={video}></MpVideoContainer>)}
+                </div>
+           </div>
         </div>
       );
 }

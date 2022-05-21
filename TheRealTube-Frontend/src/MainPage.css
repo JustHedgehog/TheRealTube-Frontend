@@ -1,13 +1,16 @@
 
-body{
-    background-color: whitesmoke;
+.mainPageBody{
+    height: 100vh;
+    background-color: rgb(43, 39, 39);
 }
+
 
 .films{
     display: flex;
     flex-direction: row;
-    
     flex-wrap: wrap;
-    margin: 10px;
+    padding-top: 8vh;
+    padding-left: 10px;
+    padding-right: 10px;
     gap: 20px;
 }

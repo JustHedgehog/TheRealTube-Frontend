@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
 
 .container{
-    background: #2f3640;
+    background: #242525;
     height: 400px;
     width: 445px;
     display: flex;
@@ -64,7 +64,6 @@
 
 .canalName{
     
-
     margin-bottom: 20px;
     max-width: 200px;
     height: 20px;
@@ -74,5 +73,5 @@
     overflow: hidden;
     text-overflow: ellipsis;
     text-decoration: none;
-    color: #6b7685;
+    color: #4b6c99;
 }

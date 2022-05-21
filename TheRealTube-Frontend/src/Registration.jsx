@@ -92,42 +92,77 @@ export default function Registration() {
     }
   }
 
+  //====Seba's Register Form====
+  // const renderForm = (
+  //   <div className="form">
+  //     <Form onSubmit={handleRegister} ref={form}>
+
+  //       <div className="input-container-register">
+  //         <label>Email: </label>
+  //         <Input
+  //                 type="text"
+  //                 name="email"
+  //                 className="registerInputs"
+  //                 value={email}
+  //                 onChange={onChangeEmail}
+  //                 validations={[required, validEmail]}
+  //               />
+  //       </div>
+  //       <div className="input-container-register">
+  //         <label>Username: </label>
+  //         <Input
+  //                 type="text"
+  //                 name="username"
+  //                 className="registerInputs"
+  //                 value={username}
+  //                 onChange={onChangeUsername}
+  //                 validations={[required, vusername]}
+  //               />
+  //       </div>
+  //       <div className="input-container-register">
+  //         <label>Password: </label>
+  //         <Input
+  //                 type="password"
+  //                 name="password"
+  //                 className="registerInputs"
+  //                 value={password}
+  //                 onChange={onChangePassword}
+  //                 validations={[required, vpassword]}
+  //               />
+  //       </div>
+  //       {message && (
+  //           <div>
+  //             <div className="error">
+  //               {message}
+  //             </div>
+  //           </div>
+  //         )}
+  //       <div className="button-container-register">
+  //         <input className='registerSubmit' type="submit" value="Zarejestruj" />
+  //       </div>
+  //       <CheckButton style={{ display: "none" }} ref={checkBtn} />
+  //     </Form>
+  //   </div>
+  // );
+
   const renderForm = (
     <div className="form">
-      <Form onSubmit={handleRegister} ref={form}>
-
+      <h1>Rejestracja</h1>
+      <Form className="registerForm" onSubmit={handleRegister} ref={form}>
         <div className="input-container-register">
-          <label>Email: </label>
-          <Input
-                  type="text"
-                  name="email"
-                  className="registerInputs"
-                  value={email}
-                  onChange={onChangeEmail}
-                  validations={[required, validEmail]}
-                />
+           <input type="text" name="email" value={email} onChange={onChangeEmail} validations={[required, validEmail]} required/>
+          <span></span>
+          <label>E-mail </label>
         </div>
         <div className="input-container-register">
-          <label>Username: </label>
-          <Input
-                  type="text"
-                  name="username"
-                  className="registerInputs"
-                  value={username}
-                  onChange={onChangeUsername}
-                  validations={[required, vusername]}
-                />
+        <input type="text" name="username" value={username} onChange={onChangeUsername} validations={[required, vusername]} required/>
+          <span></span>
+          <label>Username</label>
         </div>
         <div className="input-container-register">
-          <label>Password: </label>
-          <Input
-                  type="password"
-                  name="password"
-                  className="registerInputs"
-                  value={password}
-                  onChange={onChangePassword}
-                  validations={[required, vpassword]}
-                />
+        <input type="password" name="password" value={password} onChange={onChangePassword} validations={[required, vpassword]} required/>
+          <span></span>
+          <label>Password</label>
         </div>
         {message && (
             <div>
@@ -136,10 +171,11 @@ export default function Registration() {
               </div>
             </div>
           )}
-        <div className="button-container-register">
-          <input className='registerSubmit' type="submit" value="Zarejestruj" />
+        <input className="registerSubmit" type="submit" value="Zarejestruj się"/>
+        <div className="signin_link">
+          Masz już konto? <a href="/Login">Zaloguj się</a>
         </div>
-        <CheckButton style={{ display: "none" }} ref={checkBtn} />
+        <CheckButton style={{ display:"none" }} ref={checkBtn} />
       </Form>
     </div>
   );
