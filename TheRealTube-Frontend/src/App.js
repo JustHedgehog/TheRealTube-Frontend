@@ -13,7 +13,7 @@ function App() {
         <Route exec path="/" element={<MainPage/>}></Route>
         <Route exec path='/Login' element={<Login/>}></Route>
         <Route exec path='/Registration' element={<Registration/>}></Route>
-        <Route exec path='/Search' element={<SearchPage/>}></Route>
+        <Route exec path='/Search/:title' element={<SearchPage/>}></Route>
         <Route exec path='/Play/:id' element={<PlayerPage/>}></Route>
         <Route exec path="*" element={<MainPage/>}></Route>
     </Routes>

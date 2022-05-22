@@ -1,0 +1,41 @@
+
+.SearchBody{
+    background-color: rgb(43, 39, 39);
+    background-size: cover;
+    max-height: fit-content;
+    min-height: 100vh;
+}
+.filmsList{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: center;
+    padding-top: 3vh;
+    padding-left: 10px;
+    padding-right: 10px;
+    gap: 20px;
+}
+
+.message{  
+    color: white;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: center;
+    padding-top: 15vh;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-weight: bolder;
+}
+
+.stats{
+    color: white;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: center;
+    padding-top: 8vh;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-weight: bolder;
+}

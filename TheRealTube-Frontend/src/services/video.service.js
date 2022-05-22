@@ -10,9 +10,14 @@ const getVideo = (id) => {
     return axios.get(API_URL+'/'+id, {headers: authHeader()})    
 }
 
+const getVideosByTitle = (title) => {
+    return axios.get(API_URL+'/name/'+title, {headers: authHeader()})    
+}
+
 const Videos = {
     getAllVideos,
-    getVideo
+    getVideo,
+    getVideosByTitle
 }
 
 export default Videos;

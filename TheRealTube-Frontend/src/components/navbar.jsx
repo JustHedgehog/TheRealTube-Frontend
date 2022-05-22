@@ -7,7 +7,7 @@ import "./navbar.css";
  export default function Navbar(props){
     const [active, setActive] = useState("nav_menu");
     const [toggleIcon, setToggleIcon] = useState("nav_toggler");
-
+    const [searchHref, setSearchHref] = useState("../");
 
     const navToggle = () => {
         active === "nav_menu" 
@@ -19,11 +19,23 @@ import "./navbar.css";
         : setToggleIcon("nav_toggler")
     };
 
-    const handleKeyDown = (event) => {
-        if(event.key === 'Enter'){
-            window.location.href = "/Search";
+
+    //Wyłapanie enter
+    function handleKeyDown(e){
+        if(e.key === 'Enter'){
+            window.location.href = searchHref;
+        }
+
+    }
+
+    function handleChange(e){
+        if(e.target.value!=="")
+            setSearchHref("/Search/" + e.target.value);
+        else{
+            setSearchHref("../");
         }
     }
+
 
     return (
         <nav className="nav">
@@ -31,8 +43,8 @@ import "./navbar.css";
             <ul className={active}>
             <li className="nav_item">
                 <div class="search-box">
-                    <input className="search-txt" type="text" name="" placeholder="Szukaj" onKeyDown={handleKeyDown}/>
-                    <a className="search-btn" href="/Search">
+                    <input className="search-txt" type="text" name="" placeholder="Szukaj"  onChange={handleChange} onKeyDown={handleKeyDown} />
+                    <a className="search-btn" href={searchHref}>
                         <i className="gg-search"></i>
                     </a>
                 </div>
