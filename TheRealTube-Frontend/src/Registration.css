@@ -63,15 +63,31 @@
   background: #2691d9;
   transition: .5s;
 }
+
+.input-container-register input:hover ~ label,
+.input-container-register input:valid ~ label,
 .input-container-register input:focus ~ label,
-.input-container-register input:valid ~ label{
+.input-container-register input:not(:placeholder-shown) ~ label
+{
   top: -5px;
   color: #2691d9;
 }
-.input-container-register input:focus ~ span::before,
+
+
+.input-container-register input:hover::placeholder,
+.input-container-register input:focus::placeholder,
+.input-container-register input:not(:focus)::placeholder{
+  opacity: 0;
+}
+
+
 .input-container-register input:valid ~ span::before{
   width: 100%;
 }
+
+
+
+
 
 .registerSubmit{
   width: 100%;

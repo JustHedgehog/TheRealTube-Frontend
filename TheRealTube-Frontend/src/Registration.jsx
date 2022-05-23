@@ -18,42 +18,42 @@ export default function Registration() {
   const [message, setMessage] = useState("");
   let navigate = useNavigate();
   const role=["ROLE_USER"];
-  const required = (value) => {
-    if (!value) {
-      return (
-        <div>
-          Pole jest wymagane!
-        </div>
-      );
-    }
-  };
-  const validEmail = (value) => {
-    if (!isEmail(value) || value.length > 50 ) {
-      return (
-        <div>
-          Nieprawidłowy email!
-        </div>
-      );
-    }
-  };
-  const vusername = (value) => {
-    if (value.length < 3 || value.length > 20) {
-      return (
-        <div>
-          Nazwa użytkownika powinna zawierać od 3 do 20 znaków!
-        </div>
-      );
-    }
-  };
-  const vpassword = (value) => {
-    if (value.length < 6 || value.length > 120) {
-      return (
-        <div>
-          Hasło powinno zawierać od 6 do 120 znaków!
-        </div>
-      );
-    }
-  };
+  // const required = (value) => {
+  //   if (!value) {
+  //     return (
+  //       <div>
+  //         Pole jest wymagane!
+  //       </div>
+  //     );
+  //   }
+  // };
+  // const validEmail = (value) => {
+  //   if (!isEmail(value) || value.length > 50 ) {
+  //     return (
+  //       <div>
+  //         Nieprawidłowy email!
+  //       </div>
+  //     );
+  //   }
+  // };
+  // const vusername = (value) => {
+  //   if (value.length < 3 || value.length > 20) {
+  //     return (
+  //       <div>
+  //         Nazwa użytkownika powinna zawierać od 3 do 20 znaków!
+  //       </div>
+  //     );
+  //   }
+  // };
+  // const vpassword = (value) => {
+  //   if (value.length < 6 || value.length > 120) {
+  //     return (
+  //       <div>
+  //         Hasło powinno zawierać od 6 do 120 znaków!
+  //       </div>
+  //     );
+  //   }
+  // };
 
 
   const onChangeUsername = (e) => {
@@ -68,6 +68,7 @@ export default function Registration() {
     const password = e.target.value;
     setPassword(password);
   };
+
   const handleRegister = (e) => {
     e.preventDefault();
     setMessage("");
@@ -80,13 +81,7 @@ export default function Registration() {
           window.location.reload();
         },
         (error) => {
-          const resMessage =
-            (error.response &&
-              error.response.data &&
-              error.response.data.message) ||
-            error.message ||
-            error.toString();
-          setMessage(resMessage);
+          setMessage(error.response.data);
         }
       );
     }
@@ -150,17 +145,49 @@ export default function Registration() {
       <h1>Rejestracja</h1>
       <Form className="registerForm" onSubmit={handleRegister} ref={form}>
         <div className="input-container-register">
-           <input type="text" name="email" value={email} onChange={onChangeEmail} validations={[required, validEmail]} required/>
+           <input className="inputTextRegister"
+            type="text"
+             name="email"
+              value={email}
+               onChange={onChangeEmail}
+                // validations={[required, validEmail]}
+                autoComplete="off"
+                placeholder='e-mail'
+                pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+                title="Wprowadź poprawny e-mail!"
+                 required/>
           <span></span>
           <label>E-mail </label>
         </div>
         <div className="input-container-register">
-        <input type="text" name="username" value={username} onChange={onChangeUsername} validations={[required, vusername]} required/>
+        <input className="inputTextRegister"
+         type="text"
+          name="username"
+           value={username}
+            onChange={onChangeUsername}
+            //  validations={[required, vusername]}
+            autoComplete="off"
+            placeholder="username"
+              required
+              minLength="3"
+              maxLength="20"
+              title="Nazwa powinna składać się z minimum 3 znaków!"
+              />
           <span></span>
           <label>Username</label>
         </div>
         <div className="input-container-register">
-        <input type="password" name="password" value={password} onChange={onChangePassword} validations={[required, vpassword]} required/>
+        <input className="inputTextRegister"
+         type="password"
+          name="password"
+           value={password}
+            onChange={onChangePassword}
+            //  validations={[required, vpassword]}
+            placeholder='password'
+            minLength="6"
+            maxLength="120"
+            title="Nazwa powinna składać się z minimum 6 znaków!"
+              required/>
           <span></span>
           <label>Password</label>
         </div>
@@ -171,7 +198,7 @@ export default function Registration() {
               </div>
             </div>
           )}
-        <input className="registerSubmit" type="submit" value="Zarejestruj się"/>
+        <input className="registerSubmit" type="submit" value="Zarejestruj"/>
         <div className="signin_link">
           Masz już konto? <a href="/Login">Zaloguj się</a>
         </div>

@@ -16,41 +16,41 @@ export default function Login(){
   const [password, setPassword] = useState("");
   const [message, setMessage] = useState("");
 
-  const passwordValidation = (value) => {
-    if (!value) {
-      return (
-        <div>
-          Pole jest wymagane!
-        </div>
-      );
-    }
-    if(value.length > 120)
-    {
-      return (
-        <div>
-          Hasło za długie!
-        </div>
-      )
-    }
-  };
+  // const passwordValidation = (value) => {
+  //   if (!value) {
+  //     return (
+  //       <div>
+  //         Pole jest wymagane!
+  //       </div>
+  //     );
+  //   }
+  //   if(value.length > 120)
+  //   {
+  //     return (
+  //       <div>
+  //         Hasło za długie!
+  //       </div>
+  //     )
+  //   }
+  // };
 
-  const usernameValidation = (value) =>{
-    if (!value) {
-      return (
-        <div>
-          Pole jest wymagane!
-        </div>
-      );
-    }
-    if(value.length > 20)
-    {
-      return (
-        <div>
-          Za długa nazwa użytkownika!
-        </div>
-      )
-    }
-  };
+  // const usernameValidation = (value) =>{
+  //   if (!value) {
+  //     return (
+  //       <div>
+  //         Pole jest wymagane!
+  //       </div>
+  //     );
+  //   }
+  //   if(value.length > 20)
+  //   {
+  //     return (
+  //       <div>
+  //         Za długa nazwa użytkownika!
+  //       </div>
+  //     )
+  //   }
+  // };
 
 
     const onChangeUsername = (e) => {
@@ -122,12 +122,25 @@ export default function Login(){
       <h1>Logowanie</h1>
       <Form className="loginForm" onSubmit={handleLogin} ref={form}>
         <div className="input-container-login">
-        <input type="text" name="username" value={username} onChange={onChangeUsername} validations={[usernameValidation]} required/>
+        <input type="text"
+         name="username"
+          value={username}
+           onChange={onChangeUsername}
+            // validations={[usernameValidation]}
+            autoComplete="off"
+            maxLength="20"
+             required/>
           <span></span>
           <label>Username</label>
         </div>
         <div className="input-container-login">
-        <input type="password" name="password" value={password} onChange={onChangePassword} validations={[passwordValidation]} required/>
+        <input type="password"
+         name="password"
+          value={password}
+           onChange={onChangePassword}
+            // validations={[passwordValidation]}
+            maxLength="120"
+             required/>
           <span></span>
           <label>Password</label>
         </div>

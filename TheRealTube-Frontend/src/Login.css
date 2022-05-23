@@ -64,7 +64,9 @@
   transition: .5s;
 }
 .input-container-login input:focus ~ label,
-.input-container-login input:valid ~ label{
+.input-container-login input:valid ~ label,
+.input-container-login input:hover ~ label
+{
   top: -5px;
   color: #2691d9;
 }
@@ -72,6 +74,8 @@
 .input-container-login input:valid ~ span::before{
   width: 100%;
 }
+
+
 
 .loginSubmit{
   width: 100%;
