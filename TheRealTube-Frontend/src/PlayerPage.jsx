@@ -34,7 +34,7 @@ export default function PlayerPage(props){
                     <img src={avatar} alt="avatarPlayer" className="avatarPlayer"  width="100%" height="100%" />
                     <div className="aboutTextPlayer">
                         <a className="titleVideoPlayer" >{video.name}</a>
-                        <a className="canalNamePlayer" href="">Poradniki instalacyjne</a>
+                        <a className="canalNamePlayer" href="">{video.user? video.user.username : ""}</a>
                     </div>
                 
                 </div>

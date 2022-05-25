@@ -1,0 +1,143 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@700&family=Poppins:wght@400;500;600&display=swap');
+
+.uploadApp{
+  margin: 0;
+  padding: 0;
+  background: rgb(43, 39, 39);
+  font-family: "Poppins", sans-serif;
+  height: 100vh;
+  overflow: hidden;
+}
+.submitUpload{
+    width: 100%;
+    height: 50px;
+    border: 1px solid;
+    background: #2691d9;
+    border-color: #2691d9;
+    border-radius: 25px;
+    font-size: 18px;
+    color: #e9f4fb;
+    font-weight: 700;
+    cursor: pointer;
+    outline: none;
+}
+.submitUpload:hover{
+    border-color: rgb(61, 58, 58);
+    transition: .5s;
+}
+
+.uploadForm{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 400px;
+    height: 400px;
+    background: rgb(71, 67, 67);
+    border-radius: 10px;
+    box-shadow: 10px 10px 15px rgba(0,0,0,0.05);
+}
+
+.innerUploadForm{
+    padding: 0 40px;
+    box-sizing: border-box;
+}
+
+.h1Upload{
+    text-align: center;
+    color: white;
+    padding: 20px 0;
+    border-bottom: 1px solid silver;
+}
+
+.input-container-upload{
+    position: relative;
+    border-bottom: 2px solid #adadad;
+    margin: 30px 0;
+  }
+  .input-container-upload input{
+    color: white;
+    width: 100%;
+    padding: 0 5px;
+    height: 40px;
+    font-size: 16px;
+    border: none;
+    background: none;
+    outline: none;
+  }
+  .input-container-upload label{
+    position: absolute;
+    top: 50%;
+    left: 5px;
+    color: white;
+    transform: translateY(-50%);
+    font-size: 16px;
+    pointer-events: none;
+    transition: .5s;
+  }
+  .input-container-upload span::before{
+    content: '';
+    position: absolute;
+    top: 40px;
+    left: 0;
+    width: 0%;
+    height: 2px;
+    background: #2691d9;
+    transition: .5s;
+  }
+
+.input-container-upload input:focus ~ label,
+.input-container-upload input:valid ~ label,
+.input-container-upload input:hover ~ label
+{
+  top: -5px;
+  color: #2691d9;
+}
+.input-container-upload input:focus ~ span::before,
+.input-container-upload input:valid ~ span::before{
+  width: 100%;
+}
+
+.errorUpload {
+    color: red;
+    font-size: 16px;
+    font-weight: bolder;
+    padding-bottom: 20px;
+  }
+
+  .choose::-webkit-file-upload-button {
+    color: white;
+    display: inline-block;
+    background: #2691d9;
+    border: none;
+    padding: 7px 15px;
+    font-weight: 700;
+    border-radius: 3px;
+    white-space: nowrap;
+    cursor: pointer;
+    font-size: 10pt;
+  }
+
+  .choose{
+      color: white;
+      font-size: 10pt;
+  }
+
+
+.success{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 400px;
+    height: 150px;
+    background: rgb(71, 67, 67);
+    border-radius: 10px;
+    box-shadow: 10px 10px 15px rgba(0,0,0,0.05);
+    color: white;
+}
+.h2Upload{
+    text-align: center;
+    color: white;
+    padding: 20px 0;
+}
