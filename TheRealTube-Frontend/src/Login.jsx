@@ -16,43 +16,6 @@ export default function Login(){
   const [password, setPassword] = useState("");
   const [message, setMessage] = useState("");
 
-  // const passwordValidation = (value) => {
-  //   if (!value) {
-  //     return (
-  //       <div>
-  //         Pole jest wymagane!
-  //       </div>
-  //     );
-  //   }
-  //   if(value.length > 120)
-  //   {
-  //     return (
-  //       <div>
-  //         Hasło za długie!
-  //       </div>
-  //     )
-  //   }
-  // };
-
-  // const usernameValidation = (value) =>{
-  //   if (!value) {
-  //     return (
-  //       <div>
-  //         Pole jest wymagane!
-  //       </div>
-  //     );
-  //   }
-  //   if(value.length > 20)
-  //   {
-  //     return (
-  //       <div>
-  //         Za długa nazwa użytkownika!
-  //       </div>
-  //     )
-  //   }
-  // };
-
-
     const onChangeUsername = (e) => {
       const username = e.target.value;
       setUsername(username);
@@ -88,35 +51,6 @@ export default function Login(){
       }
     }
 
-  //====Mateo's Form====
-  //
-  // const renderForm = (
-  //   <div className="form">
-  //     <Form onSubmit={handleLogin} ref={form}>
-  //       <div className="input-container-login">
-  //         <label>Username: </label>
-  //         <Input className="loginInputs" type="text" name="username" value={username} onChange={onChangeUsername} validations={[usernameValidation]}/>
-  //       </div>
-  //       <div className="input-container-login">
-  //         <label>Password: </label>
-  //         <Input className="loginInputs" type="password" name="password" value={password} onChange={onChangePassword} validations={[passwordValidation]} />
-  //       </div>
-  //       {message && (
-  //           <div>
-  //             <div className="error">
-  //               {message}
-  //             </div>
-  //           </div>
-  //         )}
-  //       <div className="button-container-login">
-  //         <input className="loginSubmit" type="submit" value="Zaloguj się"/>
-  //       </div>
-  //       <CheckButton style={{ display:"none" }} ref={checkBtn} />
-  //     </Form>
-  //   </div>
-  // );
-
-
   const renderForm = (
     <div className="form">
       <h1>Logowanie</h1>
@@ -126,7 +60,6 @@ export default function Login(){
          name="username"
           value={username}
            onChange={onChangeUsername}
-            // validations={[usernameValidation]}
             autoComplete="off"
             maxLength="20"
              required/>
@@ -138,7 +71,6 @@ export default function Login(){
          name="password"
           value={password}
            onChange={onChangePassword}
-            // validations={[passwordValidation]}
             maxLength="120"
              required/>
           <span></span>

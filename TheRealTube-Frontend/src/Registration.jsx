@@ -18,43 +18,6 @@ export default function Registration() {
   const [message, setMessage] = useState("");
   let navigate = useNavigate();
   const role=["ROLE_USER"];
-  // const required = (value) => {
-  //   if (!value) {
-  //     return (
-  //       <div>
-  //         Pole jest wymagane!
-  //       </div>
-  //     );
-  //   }
-  // };
-  // const validEmail = (value) => {
-  //   if (!isEmail(value) || value.length > 50 ) {
-  //     return (
-  //       <div>
-  //         Nieprawidłowy email!
-  //       </div>
-  //     );
-  //   }
-  // };
-  // const vusername = (value) => {
-  //   if (value.length < 3 || value.length > 20) {
-  //     return (
-  //       <div>
-  //         Nazwa użytkownika powinna zawierać od 3 do 20 znaków!
-  //       </div>
-  //     );
-  //   }
-  // };
-  // const vpassword = (value) => {
-  //   if (value.length < 6 || value.length > 120) {
-  //     return (
-  //       <div>
-  //         Hasło powinno zawierać od 6 do 120 znaków!
-  //       </div>
-  //     );
-  //   }
-  // };
-
 
   const onChangeUsername = (e) => {
     const username = e.target.value;
@@ -87,59 +50,6 @@ export default function Registration() {
     }
   }
 
-  //====Seba's Register Form====
-  // const renderForm = (
-  //   <div className="form">
-  //     <Form onSubmit={handleRegister} ref={form}>
-
-  //       <div className="input-container-register">
-  //         <label>Email: </label>
-  //         <Input
-  //                 type="text"
-  //                 name="email"
-  //                 className="registerInputs"
-  //                 value={email}
-  //                 onChange={onChangeEmail}
-  //                 validations={[required, validEmail]}
-  //               />
-  //       </div>
-  //       <div className="input-container-register">
-  //         <label>Username: </label>
-  //         <Input
-  //                 type="text"
-  //                 name="username"
-  //                 className="registerInputs"
-  //                 value={username}
-  //                 onChange={onChangeUsername}
-  //                 validations={[required, vusername]}
-  //               />
-  //       </div>
-  //       <div className="input-container-register">
-  //         <label>Password: </label>
-  //         <Input
-  //                 type="password"
-  //                 name="password"
-  //                 className="registerInputs"
-  //                 value={password}
-  //                 onChange={onChangePassword}
-  //                 validations={[required, vpassword]}
-  //               />
-  //       </div>
-  //       {message && (
-  //           <div>
-  //             <div className="error">
-  //               {message}
-  //             </div>
-  //           </div>
-  //         )}
-  //       <div className="button-container-register">
-  //         <input className='registerSubmit' type="submit" value="Zarejestruj" />
-  //       </div>
-  //       <CheckButton style={{ display: "none" }} ref={checkBtn} />
-  //     </Form>
-  //   </div>
-  // );
-
   const renderForm = (
     <div className="form">
       <h1>Rejestracja</h1>
@@ -150,7 +60,6 @@ export default function Registration() {
              name="email"
               value={email}
                onChange={onChangeEmail}
-                // validations={[required, validEmail]}
                 autoComplete="off"
                 placeholder='e-mail'
                 pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
@@ -165,7 +74,6 @@ export default function Registration() {
           name="username"
            value={username}
             onChange={onChangeUsername}
-            //  validations={[required, vusername]}
             autoComplete="off"
             placeholder="username"
               required
@@ -182,7 +90,6 @@ export default function Registration() {
           name="password"
            value={password}
             onChange={onChangePassword}
-            //  validations={[required, vpassword]}
             placeholder='password'
             minLength="6"
             maxLength="120"

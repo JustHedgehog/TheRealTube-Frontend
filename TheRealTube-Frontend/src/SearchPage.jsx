@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import "./SearchPage.css";
 import Navbar from "./components/navbar";
 import Videos from "./services/video.service";
-import MpVideoContainer from "./components/mpVideoContainer";
+import SpVideoContainer from "./components/spVideoContainer";
 
 export default function MainPage() {
 
@@ -24,7 +24,7 @@ export default function MainPage() {
 
 
   const showSearchedData = () => {
-    return listaVideo && listaVideo.map(video => <MpVideoContainer key={video.objectKey} wideo={video}></MpVideoContainer>);
+    return listaVideo && listaVideo.map(video => <SpVideoContainer key={video.objectKey} wideo={video}></SpVideoContainer>);
   };
 
   const showMessage = () => {
@@ -39,6 +39,16 @@ export default function MainPage() {
     </div>
 
   };
+
+  // return (
+  //   <div className="SearchBody">
+  //     <Navbar />
+  //     <div >
+  //       {listaVideo.length !== 0 ? (showResults()) : (showMessage())}
+  //     </div>
+  //   </div>
+
+  // );
 
   return (
     <div className="SearchBody">
