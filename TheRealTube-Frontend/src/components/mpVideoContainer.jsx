@@ -28,8 +28,6 @@ export default function MpVideoContainer(props){
         
       }
 
-      console.log(wideo)
-
     return (
         <div className="container">
             <div className="miniatureContainer">
