@@ -6,11 +6,16 @@ import "./UploadVideo.css";
 export default function UploadVideo() {
   const [file, setFile] = useState()
   const [title, setTitle] = useState()
+  const [description, setDescription] = useState();
   const [message, setMessage] = useState()
   const [success, setSuccess] = useState(false)
 
   function handleChangeTitle(event) {
     setTitle(event.target.value)
+  }
+
+  function handleChangeDescription(event){
+    setDescription(event.target.value)
   }
 
   function getExtension(filename) {
@@ -57,7 +62,7 @@ export default function UploadVideo() {
     event.preventDefault()
 
     if (isVideo(file.name)) {
-      Videos.uploadVideo(file, title).then(
+      Videos.uploadVideo(file, title, description).then(
         () => {
           setSuccess(true);
         },
@@ -81,6 +86,11 @@ export default function UploadVideo() {
           <span></span>
           <label >Tytuł filmu</label>
         </div >
+        <div className="input-container-upload">
+          <input type="text" onChange={handleChangeDescription} required />
+          <span></span>
+          <label >Opis filmu</label>
+        </div >
         <div style={{ marginBottom: '20px' }} >
           <input type="file" onChange={handleChange} accept="video/*" required className="choose" />
         </div>
@@ -100,7 +110,7 @@ export default function UploadVideo() {
     <div >
       <Navbar></Navbar>
       <div style={{ paddingTop: '100px' }} className="uploadApp">
-          {success? succcessInfo: uploadForms}
+          {success ? succcessInfo : uploadForms}
       </div>
     </div>
   );
