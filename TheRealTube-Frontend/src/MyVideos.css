@@ -1,0 +1,29 @@
+
+.myVideosBody{
+    background-color: rgb(43, 39, 39);
+    background-size: cover;
+    max-height: fit-content;
+    min-height: 100vh;
+}
+
+
+.myFilms{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding-top: 8vh;
+    padding-left: 10px;
+    padding-right: 10px;
+    gap: 20px;
+}
+.statsMyFilms{
+    color: white;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: center;
+    padding-top: 15vh;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-weight: bolder;
+}

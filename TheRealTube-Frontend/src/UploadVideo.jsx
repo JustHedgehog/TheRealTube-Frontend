@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Navbar from './components/navbar';
 import Videos from './services/video.service';
 import "./UploadVideo.css";
@@ -9,6 +9,14 @@ export default function UploadVideo() {
   const [description, setDescription] = useState();
   const [message, setMessage] = useState()
   const [success, setSuccess] = useState(false)
+
+  const user = JSON.parse(localStorage.getItem('user'));
+  
+  useEffect(()=>{
+    if(!user){
+        window.location.href='/';
+    }
+  });
 
   function handleChangeTitle(event) {
     setTitle(event.target.value)

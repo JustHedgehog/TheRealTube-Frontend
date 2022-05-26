@@ -103,7 +103,7 @@
     border-radius: 40px;
     border: solid 1px rgba(169, 169, 169, 0.144);
     padding: 10px;
-
+    display: inline-flex;
 }
 .search-box:hover > .search-txt{
     width: 250px;

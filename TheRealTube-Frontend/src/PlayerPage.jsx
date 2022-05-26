@@ -20,20 +20,19 @@ export default function PlayerPage(props){
         )
     },[id])
 
-    const urlVideo =video.fileurl;
-
     return (
         <div>
             <Navbar/>
             <div className="playerContainer">
                 <div className="player">
-                    <ReactPlayer className="video" controls={true} url={urlVideo} playing={true} width="100%" height="100%"  >
+                    <ReactPlayer className="video" controls={true} url={video.fileurl} playing={true} width="100%" height="100%"  >
                     </ReactPlayer>
                 </div>
                 <div className="aboutVideoPlayer">
                     <img src={avatar} alt="avatarPlayer" className="avatarPlayer"  width="100%" height="100%" />
                     <div className="aboutTextPlayer">
                         <a className="titleVideoPlayer" >{video.name}</a>
+                        <div className="describePlayer">{video.description}</div>
                         <a className="canalNamePlayer" href="">{video.user? video.user.username : ""}</a>
                     </div>
                 

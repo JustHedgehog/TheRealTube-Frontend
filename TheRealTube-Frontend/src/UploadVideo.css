@@ -32,7 +32,7 @@
     left: 50%;
     transform: translate(-50%, -50%);
     width: 400px;
-    height: 400px;
+    height: 450px;
     background: rgb(71, 67, 67);
     border-radius: 10px;
     box-shadow: 10px 10px 15px rgba(0,0,0,0.05);

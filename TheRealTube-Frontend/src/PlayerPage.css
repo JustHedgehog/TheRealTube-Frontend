@@ -26,7 +26,7 @@
 
 .titleVideoPlayer{
 
-    width: 1000px;
+    width: 1150px;
     height: 30px;
     font-size: 18px;
     display: -webkit-box;
@@ -39,7 +39,7 @@
 
 .canalNamePlayer{
     margin-bottom: 20px;
-    max-width: 1200px;
+    max-width: 1150px;
     font-size: 14px;
     font-weight: bold;
     white-space: nowrap;
@@ -62,4 +62,9 @@
     min-height: 100vh;
     padding-top: 10vh;
     
+}
+.describePlayer{
+    padding-top: 5px;
+    height: 40%;
+    color: rgb(134, 134, 134);
 }

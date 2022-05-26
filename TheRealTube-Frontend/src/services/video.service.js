@@ -6,6 +6,11 @@ const getAllVideos = () => {
     return axios.get(API_URL)    
 }
 
+const getVideosByUser = () => {
+    const user = JSON.parse(localStorage.getItem('user'));
+    return axios.get(API_URL+'/'+user.id +'/video')    
+}
+
 const getVideo = (id) => {
     return axios.get(API_URL+'/'+id)    
 }
@@ -35,6 +40,7 @@ const uploadVideo = (file, name, description) => {
 const Videos = {
     getAllVideos,
     getVideo,
+    getVideosByUser,
     getVideosByTitle,
     uploadVideo,
     deleteVideo
