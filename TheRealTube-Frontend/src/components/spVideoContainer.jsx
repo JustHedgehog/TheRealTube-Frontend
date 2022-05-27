@@ -10,23 +10,21 @@ export default function SpVideoContainer(props){
     const wideo = props.wideo
     const vid = useRef(null);
     let navigate = useNavigate();
+
     function CoursesPage (){
-        vid.current.play();
+        vid.current.pause();
         navigate(`/Play/${wideo.id}`);
-        
-        
     }
+
     var timer=0;
 
     function stopMovie () {
-        
         clearTimeout(timer);
         vid.current.pause();
       }
       
     function playMovie (){
         timer = setTimeout(()=>{vid.current.play();},500);
-        
       }
 
     return (
@@ -38,7 +36,7 @@ export default function SpVideoContainer(props){
             </div>
             <div className="sp-aboutContainer">
                 <Link className="sp-title"  to={{pathname: `/Play/${wideo.id}`}}>{wideo.name}</Link>
-                <div className="describe">Tu będzie opis!</div>
+                <div className="describe">{wideo.description}</div>
                 <div className="from-who-row">
                 <img src={avatar} alt="avatar" className="sp-avatar"/>
                 <a className="sp-canal-name" href="">{wideo.user? wideo.user.username : ""}</a>

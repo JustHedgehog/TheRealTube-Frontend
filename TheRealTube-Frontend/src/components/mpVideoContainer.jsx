@@ -11,11 +11,10 @@ export default function MpVideoContainer(props){
     const vid = useRef(null);
     let navigate = useNavigate();
     function CoursesPage (){
-        vid.current.play();
+        vid.current.pause();
         navigate(`/Play/${wideo.id}`);
-        
-        
     }
+
     var timer=0;
 
     function stopMovie () {
@@ -40,6 +39,10 @@ export default function MpVideoContainer(props){
                 <img src={avatar} alt="avatar" className="avatar"/>
                 <div className="aboutText">
                 <Link className="titleVideo"  to={{pathname: `/Play/${wideo.id}`}}>{wideo.name}</Link>
+                {/* TU MA BYĆ TEN SUPER MEGA OPIS */}
+                <div className="describeMP">
+                    {wideo.description} 
+                </div>
                 <a className="canalName" href="">{wideo.user? wideo.user.username : ""}</a>
                 </div>
                 
