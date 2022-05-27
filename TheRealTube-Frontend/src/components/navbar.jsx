@@ -21,7 +21,6 @@ import Videos from "../services/video.service";
     };
 
 
-    //Wyłapanie enter
     function handleKeyDown(e){
         if(e.key === 'Enter'){
             window.location.href = searchHref;
