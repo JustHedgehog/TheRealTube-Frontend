@@ -4,6 +4,7 @@ import miniature from "../assets/winxp.jpg";
 import avatar from "../assets/psiun.jpg";
 
 import "./mpVideoContainer.css";
+import Videos from "../services/video.service";
 
 export default function MpVideoContainer(props){
 

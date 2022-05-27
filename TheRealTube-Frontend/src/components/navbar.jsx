@@ -3,6 +3,7 @@ import AuthService from "../services/auth.service";
 import Niezalogowany from "./niezalogowany";
 import Zalogowany from "./zalogowany";
 import "./navbar.css";
+import Videos from "../services/video.service";
 
  export default function Navbar(props){
     const [active, setActive] = useState("nav_menu");
@@ -50,7 +51,6 @@ import "./navbar.css";
                 </div>
             </li>
             {AuthService.getCurrentUser() ? <Zalogowany></Zalogowany> : <Niezalogowany></Niezalogowany>}
-
             </ul>
             <div onClick= {navToggle} className={toggleIcon}>
                 <div className="line1"></div>
