@@ -33,9 +33,8 @@ export default function PlayerPage(props){
                     <div className="aboutTextPlayer">
                         <a className="titleVideoPlayer" >{video.name}</a>
                         <div className="describePlayer">{video.description}</div>
-                        <a className="canalNamePlayer" href="">{video.user? video.user.username : ""}</a>
+                        <a className="canalNamePlayer">{video.user? video.user.username : ""}</a>
                     </div>
-                
                 </div>
             </div>
         </div>
