@@ -44,7 +44,7 @@ export default function MpVideoContainer(props){
                 <div className="describeMP">
                     {wideo.description} 
                 </div>
-                <a className="canalName" href="">{wideo.user? wideo.user.username : ""}</a>
+                <a className="canalName" >{wideo.user? wideo.user.username : ""}</a>
                 </div>
                 
             </div>

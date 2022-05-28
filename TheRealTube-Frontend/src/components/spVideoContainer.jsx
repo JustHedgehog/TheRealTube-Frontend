@@ -39,7 +39,7 @@ export default function SpVideoContainer(props){
                 <div className="describe">{wideo.description}</div>
                 <div className="from-who-row">
                 <img src={avatar} alt="avatar" className="sp-avatar"/>
-                <a className="sp-canal-name" href="">{wideo.user? wideo.user.username : ""}</a>
+                <a className="sp-canal-name" >{wideo.user? wideo.user.username : ""}</a>
                 </div>
             </div>
         </div>
