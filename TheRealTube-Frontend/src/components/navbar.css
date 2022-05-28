@@ -22,6 +22,7 @@
     background: rgb(36, 33, 33);
     border-bottom: solid 2px rgba(169, 169, 169, 0.144);
     position: fixed;
+    z-index: 100;
     width: 100%;
     overflow: hidden;
 }
