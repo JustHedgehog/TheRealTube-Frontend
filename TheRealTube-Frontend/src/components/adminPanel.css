@@ -1,90 +1,93 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@700&family=Poppins:wght@400;500;600&display=swap');
 
 
-.panel{
-  position: absolute;
-  font-family: "Poppins", sans-serif;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 800px;
-  background: rgb(71, 67, 67);
-  border-radius: 10px;
-  box-shadow: 10px 10px 15px rgba(0,0,0,0.05);
-}
-.panel h1{
-  text-align: center;
-  color: white;
-  padding: 20px 0;
-  border-bottom: 1px solid silver;
+.panel {
+    position: absolute;
+    font-family: "Poppins", sans-serif;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 800px;
+    background: rgb(71, 67, 67);
+    border-radius: 10px;
+    box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.05);
 }
 
-.admin-grid{
+.panel h1 {
+    text-align: center;
+    color: white;
+    padding: 20px 0;
+    border-bottom: 1px solid silver;
+}
+
+.admin-grid {
     display: flex;
     flex-direction: row;
 }
 
-.left-column{
+.left-column {
     display: block;
     flex-direction: column;
     width: 30%;
     border-right: 1px solid silver;
 }
 
-.right-column{
-    
+.right-column {
+
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 70%;
 }
 
-.admin-tools{
+.admin-tools {
     list-style-type: none;
     padding: 0;
 }
 
-.admin-tools li{
+.admin-tools li {
     height: 80px;
     text-align: center;
     border-top: 1px solid silver;
 }
 
-.admin-tools a{
+.admin-tools a {
     display: inline-block;
     width: 100%;
     height: 100%;
     text-decoration: none;
     color: white;
-    padding: 20px;  
+    padding: 20px;
 }
 
-.admin-tools a:hover{
-    background: rgb(58, 56, 56); 
+.admin-tools a:hover {
+    background: rgb(58, 56, 56);
     transition: 0.5s;
 }
 
 .admin-tools a:focus {
-    background: rgb(58, 56, 56); 
+    background: rgb(58, 56, 56);
     transition: 0.5s;
 }
 
-.right-column h2{
+.right-column h2 {
     padding-top: 10px;
     padding-bottom: 10px;
 }
 
-.content{
+.content {
     width: 90%;
     display: block;
     text-align: center;
 }
 
-.delete-form{
+.delete_div {
     width: 100%;
+    display: block;
+    text-align: center;
 }
 
-.delete-form input[type="submit"]{
+.delete_div button {
     margin-top: 20px;
     margin-left: 10px;
     font-size: 16px;
@@ -92,13 +95,13 @@
     height: 30px;
 }
 
-.delete-form input[type="text"]{
+.delete_div input[type="text"] {
     margin-left: 10px;
     font-size: 16px;
     width: 90%;
     height: 30px;
 }
 
-.delete-form input[type="submit"]:hover{
+.delete_div button:hover {
     background: rgb(145, 140, 140);
 }
