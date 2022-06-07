@@ -1,30 +1,32 @@
-import axios from "axios";
-import authHeader from "./auth-header";
-const API_URL = "https://real-tube.herokuapp.com/api/video";
-// const API_URL = "http://localhost:8080/api/video";
+import api from "./api"
+import TokenService from "./token.service";
+// const API_URL = "https://real-tube.herokuapp.com/api/video";
+
+
+
 const getAllVideos = () => {
-    return axios.get(API_URL)    
+    return api.get('/video')    
 }
 
 const getVideosByUser = () => {
-    const user = JSON.parse(localStorage.getItem('user'));
-    return axios.get(API_URL+'/'+user.id +'/video')    
+    const user = TokenService.getUser()
+    return api.get('/video/'+user.id +'/video')    
 }
 
 const getVideo = (id) => {
-    return axios.get(API_URL+'/'+id)    
+    return api.get('/video'+id)    
 }
 
 const deleteVideo = (id) => {
-    return axios.delete(API_URL+'/'+id,{headers: authHeader()})    
+    return api.delete('/video'+id)    
 }
 
 const getVideosByTitle = (title) => {
-    return axios.get(API_URL+'/name/'+title)    
+    return api.get('/video/name/'+title)    
 }
 
 const uploadVideo = (file, name, description) => {
-    const user = JSON.parse(localStorage.getItem('user'));
+    const user = TokenService.getUser()
     const formData = new FormData();
     formData.append('file', file);
     formData.append('name', name);
@@ -34,7 +36,7 @@ const uploadVideo = (file, name, description) => {
        'Authorization': 'Bearer ' + user.accessToken
   }
 
-    return axios.post(API_URL+`/upload/${user.id}`,formData, {headers: headers }); 
+    return api.post('/video'`/upload/${user.id}`,formData, {headers: headers }); 
 }
 
 const Videos = {

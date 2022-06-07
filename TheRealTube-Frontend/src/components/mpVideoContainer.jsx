@@ -1,11 +1,9 @@
 import React, {useState, useRef} from "react";
 import { BrowserRouter as Router, Link, useNavigate } from "react-router-dom";
-import miniature from "../assets/winxp.jpg";
 import avatar from "../assets/psiun.jpg";
 import { useLocation } from "react-router-dom";
 
 import "./mpVideoContainer.css";
-import Videos from "../services/video.service";
 
 export default function MpVideoContainer(props){
     const location = useLocation();
@@ -53,7 +51,7 @@ export default function MpVideoContainer(props){
                     <div className="describeMP">
                         {wideo.description} 
                     </div>
-                <a className="canalName" >{wideo.user? wideo.user.username : ""}</a>
+                <a className="canalName">{wideo.user?.username ? wideo.user.username : wideo?.user ? wideo.user : null}</a>
                 </div>
                 
             </div>

@@ -1,31 +1,27 @@
-import axios from "axios";
-
-const API_URL = "https://real-tube.herokuapp.com/api/auth/";
-// const API_URL = "http://localhost:8080/api/auth/";
-
-const register = (username, email, password,role) => {
-  return axios.post(API_URL + "signup", {
+import api from "./api";
+import TokenService from "./token.service";
+const register = (username, email, password) => {
+  return api.post("/auth/signup", {
     username,
     email,
-    password,
-    role
+    password
   });
 };
 const login = (username, password) => {
-  return axios
-    .post(API_URL + "signin", {
+  return api
+    .post("/auth/signin", {
       username,
-      password,
+      password
     })
     .then((response) => {
       if (response.data.accessToken) {
-        localStorage.setItem("user", JSON.stringify(response.data));
+        TokenService.setUser(response.data);
       }
       return response.data;
     });
 };
 const logout = () => {
-  localStorage.removeItem("user");
+  TokenService.removeUser();
 };
 const getCurrentUser = () => {
   return JSON.parse(localStorage.getItem("user"));
@@ -36,5 +32,4 @@ const AuthService = {
   logout,
   getCurrentUser,
 };
-
 export default AuthService;
