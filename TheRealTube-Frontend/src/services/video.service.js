@@ -14,11 +14,11 @@ const getVideosByUser = () => {
 }
 
 const getVideo = (id) => {
-    return api.get('/video'+id)    
+    return api.get('/video/'+id)    
 }
 
 const deleteVideo = (id) => {
-    return api.delete('/video'+id)    
+    return api.delete('/video/'+id)    
 }
 
 const getVideosByTitle = (title) => {
@@ -36,7 +36,7 @@ const uploadVideo = (file, name, description) => {
        'Authorization': 'Bearer ' + user.accessToken
   }
 
-    return api.post('/video'`/upload/${user.id}`,formData, {headers: headers }); 
+    return api.post(`/video/upload/${user.id}`,formData, {headers: headers }); 
 }
 
 const Videos = {

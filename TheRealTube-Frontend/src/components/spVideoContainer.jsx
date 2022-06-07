@@ -38,8 +38,8 @@ export default function SpVideoContainer(props){
                 <Link className="sp-title"  to={{pathname: `/Play/${wideo.id}`}}>{wideo.name}</Link>
                 <div className="describe">{wideo.description}</div>
                 <div className="from-who-row">
-                <img src={avatar} alt="avatar" className="sp-avatar"/>
-                <a className="sp-canal-name" >{wideo.user? wideo.user.username : ""}</a>
+                <img src={wideo.user?.avatarUrl? wideo.user.avatarUrl : wideo?.user ? wideo.user : avatar} alt="avatar" className="sp-avatar"/>
+                <a className="sp-canal-name" >{wideo.user?.username ? wideo.user.username : wideo?.user ? wideo.user : null}</a>
                 </div>
             </div>
         </div>

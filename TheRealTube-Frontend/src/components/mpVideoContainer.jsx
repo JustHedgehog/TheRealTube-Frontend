@@ -44,7 +44,7 @@ export default function MpVideoContainer(props){
                 
             </div>
             <div className="aboutVideo">
-                <img src={avatar} alt="avatar" className="avatar"/>
+                <img src={wideo.user?.avatarUrl? wideo.user.avatarUrl : wideo?.user ? wideo.user : avatar} alt="avatar" className="avatar"/>
                 <div className="aboutText">
                     <Link className="titleVideo"  to={{pathname: `/Play/${wideo.id}`}}>{wideo.name}</Link> 
                     {/* TU MA BYĆ TEN SUPER MEGA OPIS */}
