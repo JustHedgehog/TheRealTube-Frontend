@@ -30,6 +30,7 @@ export default function Avatar() {
       case 'jpeg':
       case 'svg':
       case 'bmp':
+      case 'png':
         // etc
         return true;
     }
