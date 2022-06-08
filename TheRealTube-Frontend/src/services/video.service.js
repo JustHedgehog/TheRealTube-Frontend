@@ -14,11 +14,11 @@ const getVideosByUser = () => {
 }
 
 const getVideo = (id) => {
-    return api.get('/video'+id)    
+    return api.get('/video/'+id)    
 }
 
 const deleteVideo = (id) => {
-    return api.delete('/video'+id)    
+    return api.delete('/video/'+id)    
 }
 
 const getVideosByTitle = (title) => {
