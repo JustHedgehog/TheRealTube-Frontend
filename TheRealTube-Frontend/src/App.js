@@ -9,6 +9,7 @@ import PlayerPage from './PlayerPage';
 import UploadVideo from './UploadVideo';
 import MyVideos from './MyVideos';
 import ControlPanel from './ControlPanel';
+import Avatar from './Avatar';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
         <Route exec path='/Search/:title' element={<SearchPage/>}></Route>
         <Route exec path='/Play/:id' element={<PlayerPage/>}></Route>
         <Route exec path='/Upload' element={<UploadVideo/>}></Route>
+        <Route exec path='/Avatar' element={<Avatar/>}></Route>
         <Route exec path='/MyVideos' element={<MyVideos/>}></Route>
         <Route exec path='/Admin' element={<ControlPanel/>}></Route>
         <Route exec path="*" element={<MainPage/>}></Route>

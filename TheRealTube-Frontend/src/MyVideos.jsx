@@ -3,6 +3,7 @@ import "./MyVideos.css";
 import Navbar from "./components/navbar";
 import MpVideoContainer from "./components/mpVideoContainer";
 import Videos from "./services/video.service";
+import TokenService from "./services/token.service";
 
 export default function MyVideos() {
 
@@ -11,7 +12,7 @@ export default function MyVideos() {
   const [message, setMessage] = useState("");
   const [listaVideo, setListaVideo] = useState([]);
   const [videoID, setVideoID] = useState();
-  const user = JSON.parse(localStorage.getItem('user'));
+  const user = TokenService.getUser();
   const [disabled, setDisabled] = useState(true);
 
 

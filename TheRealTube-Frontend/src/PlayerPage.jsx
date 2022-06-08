@@ -29,7 +29,7 @@ export default function PlayerPage(props){
                     </ReactPlayer>
                 </div>
                 <div className="aboutVideoPlayer">
-                    <img src={avatar} alt="avatarPlayer" className="avatarPlayer"  width="100%" height="100%" />
+                    <img src={video.user ? video.user.avatarUrl==null? avatar: video.user.avatarUrl : avatar} alt="avatarPlayer" className="avatarPlayer"  width="100%" height="100%" />
                     <div className="aboutTextPlayer">
                         <a className="titleVideoPlayer" >{video.name}</a>
                         <div className="describePlayer">{video.description}</div>

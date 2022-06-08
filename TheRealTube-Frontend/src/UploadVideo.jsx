@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Navbar from './components/navbar';
 import Videos from './services/video.service';
 import "./UploadVideo.css";
+import TokenService from './services/token.service';
 
 export default function UploadVideo() {
   const [file, setFile] = useState()
@@ -10,7 +11,7 @@ export default function UploadVideo() {
   const [message, setMessage] = useState()
   const [success, setSuccess] = useState(false)
 
-  const user = JSON.parse(localStorage.getItem('user'));
+  const user = TokenService.getUser();
   
   useEffect(()=>{
     if(!user){

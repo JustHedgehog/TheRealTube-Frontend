@@ -36,7 +36,7 @@ const uploadVideo = (file, name, description) => {
        'Authorization': 'Bearer ' + user.accessToken
   }
 
-    return api.post('/video'`/upload/${user.id}`,formData, {headers: headers }); 
+    return api.post(`/video/upload/${user.id}`,formData, {headers: headers }); 
 }
 
 const Videos = {
