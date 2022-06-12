@@ -5,24 +5,24 @@ import TokenService from "./token.service";
 
 
 const getAllVideos = () => {
-    return api.get('/video')    
+    return api.get('/video')
 }
 
 const getVideosByUser = () => {
     const user = TokenService.getUser()
-    return api.get('/video/'+user.id +'/video')    
+    return api.get('/video/' + user.id + '/video')
 }
 
 const getVideo = (id) => {
-    return api.get('/video/'+id)    
+    return api.get('/video/' + id)
 }
 
 const deleteVideo = (id) => {
-    return api.delete('/video/'+id)    
+    return api.delete('/video/' + id)
 }
 
 const getVideosByTitle = (title) => {
-    return api.get('/video/name/'+title)    
+    return api.get('/video/name/' + title)
 }
 
 const uploadVideo = (file, name, description) => {
@@ -30,13 +30,30 @@ const uploadVideo = (file, name, description) => {
     const formData = new FormData();
     formData.append('file', file);
     formData.append('name', name);
-    formData.append('description',description)
+    formData.append('description', description)
     const headers = {
-       'content-type': 'multipart/form-data',
-       'Authorization': 'Bearer ' + user.accessToken
-  }
+        'content-type': 'multipart/form-data',
+        'Authorization': 'Bearer ' + user.accessToken
+    }
 
-    return api.post(`/video/upload/${user.id}`,formData, {headers: headers }); 
+    return api.post(`/video/upload/${user.id}`, formData, { headers: headers });
+}
+
+const getVideosLikes = (id) => {
+    return api.get('/video/likes/' + id)
+}
+
+const setVideoLikes = (videoId, like) => {
+    const userId = TokenService.getUser().id;
+    return api.post(`/video/judge/${videoId}`, {}, {
+        params: {
+            userId,
+            videoId,
+            like
+        }
+    })
+        .then(response => response.status)
+        .catch(err => console.warn(err));
 }
 
 const Videos = {
@@ -45,7 +62,9 @@ const Videos = {
     getVideosByUser,
     getVideosByTitle,
     uploadVideo,
-    deleteVideo
+    deleteVideo,
+    getVideosLikes,
+    setVideoLikes
 }
 
 export default Videos;
