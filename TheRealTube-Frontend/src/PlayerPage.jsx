@@ -20,30 +20,36 @@ export default function PlayerPage(props) {
     useEffect(() => {
         Videos.getVideo(id).then(
             (response) => {
-                setVideo(response.data)
+                setVideo(response.data);
             }
-        )
-    }, [id])
+        );
+    }, [id]);
 
     useEffect(() => {
         Videos.getVideosLikes(id).then(
-            (res) => {
-                setLikes(res.data)
+            (response) => {
+                setLikes(response.data);
             }
-        )
-    }, [clicked])
+        );
+    }, [clicked]);
 
 
 
     const likeHandler = () => {
-        Videos.setVideoLikes(id, true);
-        setClicked(!clicked);
-    }
+        Videos.setVideoLikes(id, true).then(
+            (response) => {
+                setClicked(!clicked);
+            }
+        );
+    };
 
     const dislikeHandler = () => {
-        Videos.setVideoLikes(id, false);
-        setClicked(!clicked);
-    }
+        Videos.setVideoLikes(id, false).then(
+            (response) => {
+                setClicked(!clicked);
+            }
+        );
+    };
 
     return (
         <div>
