@@ -4,9 +4,11 @@ import avatar from "./assets/psiun.jpg";
 import Videos from "./services/video.service";
 import ReactPlayer from 'react-player/lazy';
 import Navbar from "./components/navbar";
+import AuthService from "./services/auth.service";
 import "./PlayerPage.css";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faThumbsUp } from "@fortawesome/free-solid-svg-icons";
+
 
 export default function PlayerPage(props) {
 
