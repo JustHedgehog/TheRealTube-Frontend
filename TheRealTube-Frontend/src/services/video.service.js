@@ -1,8 +1,5 @@
 import api from "./api"
 import TokenService from "./token.service";
-// const API_URL = "https://real-tube.herokuapp.com/api/video";
-
-
 
 const getAllVideos = () => {
     return api.get('/video')    
