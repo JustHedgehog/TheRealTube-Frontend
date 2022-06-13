@@ -17,7 +17,7 @@ export default function Registration() {
   const [password, setPassword] = useState("");
   const [message, setMessage] = useState("");
   let navigate = useNavigate();
-  const role=["ROLE_USER"];
+  const role = ["ROLE_USER"];
 
   const onChangeUsername = (e) => {
     const username = e.target.value;
@@ -37,7 +37,7 @@ export default function Registration() {
     setMessage("");
     form.current.validateAll();
     if (checkBtn.current.context._errors.length === 0) {
-      AuthService.register(username, email, password,role).then(
+      AuthService.register(username, email, password, role).then(
         (response) => {
           setMessage(response.data.message);
           navigate("/");
@@ -55,77 +55,77 @@ export default function Registration() {
       <h1>Rejestracja</h1>
       <Form className="registerForm" onSubmit={handleRegister} ref={form}>
         <div className="input-container-register">
-           <input className="inputTextRegister"
+          <input className="inputTextRegister"
             type="text"
-             name="email"
-              value={email}
-               onChange={onChangeEmail}
-                autoComplete="off"
-                placeholder='e-mail'
-                pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
-                title="Wprowadź poprawny e-mail!"
-                 required/>
+            name="email"
+            value={email}
+            onChange={onChangeEmail}
+            autoComplete="off"
+            placeholder='e-mail'
+            pattern="[A-Za-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+            title="Wprowadź poprawny e-mail!"
+            required />
           <span></span>
           <label>E-mail </label>
         </div>
         <div className="input-container-register">
-        <input className="inputTextRegister"
-         type="text"
-          name="username"
-           value={username}
+          <input className="inputTextRegister"
+            type="text"
+            name="username"
+            value={username}
             onChange={onChangeUsername}
             autoComplete="off"
             placeholder="username"
-              required
-              minLength="3"
-              maxLength="20"
-              title="Nazwa powinna składać się z minimum 3 znaków!"
-              />
+            required
+            minLength="3"
+            maxLength="20"
+            title="Nazwa powinna składać się z minimum 3 znaków!"
+          />
           <span></span>
           <label>Username</label>
         </div>
         <div className="input-container-register">
-        <input className="inputTextRegister"
-         type="password"
-          name="password"
-           value={password}
+          <input className="inputTextRegister"
+            type="password"
+            name="password"
+            value={password}
             onChange={onChangePassword}
             placeholder='password'
             minLength="6"
             maxLength="120"
             title="Nazwa powinna składać się z minimum 6 znaków!"
-              required/>
+            required />
           <span></span>
           <label>Password</label>
         </div>
         {message && (
-            <div>
-              <div className="error">
-                {message}
-              </div>
+          <div>
+            <div className="error">
+              {message}
             </div>
-          )}
-        <input className="registerSubmit" type="submit" value="Zarejestruj"/>
+          </div>
+        )}
+        <input className="registerSubmit" type="submit" value="Zarejestruj" />
         <div className="signin_link">
           Masz już konto? <a href="/Login">Zaloguj się</a>
         </div>
-        <CheckButton style={{ display:"none" }} ref={checkBtn} />
+        <CheckButton style={{ display: "none" }} ref={checkBtn} />
       </Form>
     </div>
   );
 
-    return (
-      <div>
-        <Navbar></Navbar>
-        <div className="registration-app">
-          <div className="registration-form">
-            <div className="titleRegister">Rejestracja</div>
-              {renderForm}
-          </div>
+  return (
+    <div>
+      <Navbar></Navbar>
+      <div className="registration-app">
+        <div className="registration-form">
+          <div className="titleRegister">Rejestracja</div>
+          {renderForm}
         </div>
       </div>
-      );
-    
+    </div>
+  );
+
 }
 
 

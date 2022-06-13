@@ -20,31 +20,91 @@
 }
 
 .likes-dislikes {
-
+    display: flex;
+    flex-direction: row;
     height: 2cm;
     width: 100%;
     color: white;
-
 }
 
 .like,
 .dislike {
+    display: flex;
+    flex-direction: column;
     height: 80px;
     width: 60px;
     border-radius: 50px;
     background: rgb(43, 39, 39);
     color: white;
+    align-items: center;
     border: none;
+}
 
+.like label,
+.dislike label {
+    margin-top: 5px;
+}
+
+.icon {
+    margin-top: 10px;
 }
 
 
-.like:hover {
-    background: rgb(92, 86, 86);
-}
-
+.like:hover,
 .dislike:hover {
     background: rgb(92, 86, 86);
+}
+
+.like:active,
+.dislike:active {
+    border: solid rgb(73, 68, 68);
+}
+
+.mymodal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    border: 1px solid rgb(167, 155, 155);
+    background: rgb(92, 86, 86);
+    overflow: auto;
+    border-radius: 4px;
+    outline: none;
+    padding: 20px;
+    align-content: center;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.myoverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.75);
+}
+
+.modal-btn-cont {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    float: right;
+
+}
+
+.modal-btn {
+    height: 30px;
+    font-size: medium;
+    font-weight: bold;
+    margin-top: 15px;
+    color: black;
+    background: rgb(218, 212, 212);
+    font-family: 'Montserrat', sans-serif;
+}
+
+.modal-btn:hover {
+    background: rgb(218, 212, 212);
 }
 
 

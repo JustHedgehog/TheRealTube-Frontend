@@ -4,10 +4,11 @@ import avatar from "./assets/psiun.jpg";
 import Videos from "./services/video.service";
 import ReactPlayer from 'react-player/lazy';
 import Navbar from "./components/navbar";
-import AuthService from "./services/auth.service";
 import "./PlayerPage.css";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faThumbsUp } from "@fortawesome/free-solid-svg-icons";
+import TokenService from './services/token.service';
+import ReactModal from "react-modal";
 
 
 export default function PlayerPage(props) {
@@ -16,6 +17,8 @@ export default function PlayerPage(props) {
     const [video, setVideo] = useState([]);
     const [likes, setLikes] = useState([]);
     const [clicked, setClicked] = useState(false);
+    const [modalOpen, setModalOpen] = useState(false);
+    const user = TokenService.getUser();
 
     useEffect(() => {
         Videos.getVideo(id).then(
@@ -33,22 +36,40 @@ export default function PlayerPage(props) {
         );
     }, [clicked]);
 
+    const toggleModal = () => {
+        setModalOpen(!modalOpen);
+    }
 
+    const redirectToLogin = () => {
+        window.location.href = "/login";
+    }
 
     const likeHandler = () => {
-        Videos.setVideoLikes(id, true).then(
-            (response) => {
-                setClicked(!clicked);
-            }
-        );
+        if (user) {
+            Videos.setVideoLikes(id, true).then(
+                (response) => {
+                    setClicked(!clicked);
+                }
+            );
+        } else {
+            setModalOpen(true);
+        }
+
+
     };
 
     const dislikeHandler = () => {
-        Videos.setVideoLikes(id, false).then(
-            (response) => {
-                setClicked(!clicked);
-            }
-        );
+        if (user) {
+            Videos.setVideoLikes(id, false).then(
+                (response) => {
+                    setClicked(!clicked);
+                }
+            );
+        } else {
+            setModalOpen(true);
+        }
+
+
     };
 
     return (
@@ -69,16 +90,31 @@ export default function PlayerPage(props) {
                     </div>
                     <div className="likes-dislikes">
                         <button className="like" onClick={likeHandler}>
-                            <FontAwesomeIcon icon={faThumbsUp} size="3x" color="white" />
+                            <FontAwesomeIcon className="icon" icon={faThumbsUp} size="3x" color="white" />
                             <label id="likeCounter">{likes['likes']}</label>
                         </button>
 
                         <button className="dislike" onClick={dislikeHandler}>
-                            <FontAwesomeIcon icon={faThumbsUp} size="3x" rotation={180} color="white" />
+                            <FontAwesomeIcon className="icon" icon={faThumbsUp} size="3x" rotation={180} color="white" />
                             <label id="dislikeCounter">{likes["disLikes"]}</label>
                         </button>
-
                     </div>
+                    <ReactModal
+                        isOpen={modalOpen}
+                        onRequestClose={toggleModal}
+                        contentLabel="My dialog"
+                        className="mymodal"
+                        overlayClassName="myoverlay"
+                        closeTimeoutMS={500}
+                    >
+                        <div>
+                            <h3>Żeby ocenić film, musisz być zalogowany!</h3>
+                            <div className="modal-btn-cont">
+                                <button className="modal-btn" onClick={redirectToLogin}>Zaloguj</button>
+                                <button className="modal-btn" onClick={toggleModal}>Zamknij</button>
+                            </div>
+                        </div>
+                    </ReactModal>
                 </div>
             </div>
         </div>
