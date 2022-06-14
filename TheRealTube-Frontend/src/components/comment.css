@@ -1,0 +1,27 @@
+.commentContainer {
+    position: relative;
+    max-width:  1237px;
+    min-width: auto;
+    height: auto;
+    margin-top: 15px;
+    padding: 10px; 
+    display: flex;
+    align-items: center;
+  }
+  
+  .commentText {
+    min-height: 30px;
+    border-radius: 3px;
+    font-family: Arial;
+    font-size: 14px;
+    line-height: 1.5;
+    color: #ffffff;
+    margin-left: 1cm;
+  }
+  
+
+  .username{
+    color: lightblue;
+    align-self: baseline;
+    margin-left: 10px;
+  }

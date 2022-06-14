@@ -105,3 +105,11 @@
 .delete_div button:hover {
     background: rgb(145, 140, 140);
 }
+
+.delete_div button:focus {
+    border: none;
+}
+
+.delete_div button:active {
+    border: solid rgb(73, 68, 68);
+}

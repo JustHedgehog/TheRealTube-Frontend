@@ -1,6 +1,7 @@
 import { render } from "@testing-library/react";
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import Videos from "../services/video.service";
+import TokenService from '../services/token.service';
 
 import "./adminPanel.css";
 
@@ -14,6 +15,28 @@ export default function AdminPanel() {
     const delFilmRef = useRef(null);
     const banRef = useRef(null);
     const delAccRef = useRef(null);
+    const user = TokenService.getUser();
+    var isAdmin = null;
+
+
+    useEffect(() => {
+        if (!user) {
+            window.location.href = '/';
+        } else {
+            isAdmin = user.roles.find(element => {
+                if (element.includes("ROLE_ADMIN"))
+                    return true;
+                else
+                    return false;
+            });
+        }
+    });
+
+    useEffect(() => {
+        if (!isAdmin) {
+            window.location.href = '/';
+        }
+    });
 
 
     const clickHandle = (e) => {
@@ -46,6 +69,7 @@ export default function AdminPanel() {
             delFilmRef.current.style.background = "rgb(71, 67, 67)";
             permsRef.current.style.background = "rgb(71, 67, 67)";
             delAccRef.current.style.background = "rgb(71, 67, 67)";
+
         }
         if (e.currentTarget.className === "deleteAcc") {
             setPermsClicked(false);
