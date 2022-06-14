@@ -115,6 +115,7 @@ export default function PlayerPage(props) {
                     <ReactModal
                         isOpen={modalOpen}
                         onRequestClose={toggleModal}
+                        ariaHideApp={false}
                         contentLabel="My dialog"
                         className="mymodal"
                         overlayClassName="myoverlay"
