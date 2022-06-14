@@ -45,7 +45,7 @@ const getVideosLikes = (id) => {
 
 const setVideoLikes = (videoId, like) => {
     const userId = TokenService.getUser().id;
-    return api.post(`/video/judge/${videoId}`, {}, {
+    return api.post(`/video/likes/${videoId}`, {}, {
         params: {
             userId,
             videoId,

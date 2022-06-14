@@ -9,6 +9,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faThumbsUp } from "@fortawesome/free-solid-svg-icons";
 import TokenService from './services/token.service';
 import ReactModal from "react-modal";
+import CommentForm from "./components/commentForm";
+import Comments from "./services/comment.service";
+import Comment from "./components/comment";
 
 
 export default function PlayerPage(props) {
@@ -17,7 +20,9 @@ export default function PlayerPage(props) {
     const [video, setVideo] = useState([]);
     const [likes, setLikes] = useState([]);
     const [clicked, setClicked] = useState(false);
+    const [clickedComm, setClickedComm] = useState(false);
     const [modalOpen, setModalOpen] = useState(false);
+    const [listComments,setListComments] = useState([]);
     const user = TokenService.getUser();
 
     useEffect(() => {
@@ -35,6 +40,14 @@ export default function PlayerPage(props) {
             }
         );
     }, [clicked]);
+
+    useEffect(()=>{
+        Comments.getCommentsByVideo(id).then(
+            (response)=>{
+                setListComments(response.data);
+            }
+        );
+    },[clickedComm])
 
     const toggleModal = () => {
         setModalOpen(!modalOpen);
@@ -115,6 +128,11 @@ export default function PlayerPage(props) {
                             </div>
                         </div>
                     </ReactModal>
+                </div>
+                <div className="commShare" onClick={()=>{if(!user){setModalOpen(true);}}}> <CommentForm videoId={id} user={user} setClickComm={setClickedComm} clickComm={clickedComm}></CommentForm> </div>
+                <div className="comments">
+                    <h3 className="sekcja">Sekcja komentarzy: </h3>
+                    {listComments && listComments.map(comm => <Comment key={comm.id} text={comm.description}  avatarUrl={comm.user.avatarUrl} username ={comm.user.username}></Comment>)}
                 </div>
             </div>
         </div>

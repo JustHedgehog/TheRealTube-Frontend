@@ -1,0 +1,50 @@
+.shareCommentContainer {
+    background: none repeat scroll 0 0 ;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    -ms-border-radius: 4px;
+    -o-border-radius: 4px;
+    border-radius: 4px;
+    width: 1237px;
+}
+
+.shareCommentContainer textarea {
+    height: 100px;
+    padding: 20px;
+    width: 1237px;
+    border: 1px solid #ffffff;
+    background-color: #b1b1b1;
+    color: #fff;
+    outline: none;
+    -webkit-border-radius: 4px 4px 0 0;
+    -moz-border-radius: 4px 4px 0 0;
+    -ms-border-radius: 4px 4px 0 0;
+    -o-border-radius: 4px 4px 0 0;
+    border-radius: 4px 4px 0 0;
+
+}
+.shareCommentContainer textarea::placeholder {
+    color: white;
+}
+
+.shareCommentContainer .btn-success {
+    padding: 6px 15px;
+    margin-top: 9px;
+    margin-bottom: 9px;
+    border: medium none;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    -ms-border-radius: 4px;
+    -o-border-radius: 4px;
+    border-radius: 4px;
+    background-color: #2691d9;
+    font-size: 14px;
+    letter-spacing: 0.3px;
+    color: #fff;
+}
+
+.shareCommentContainer button:hover {
+    border-color: rgb(61, 58, 58);
+    background-color: #093350;
+    transition: .5s;
+}
