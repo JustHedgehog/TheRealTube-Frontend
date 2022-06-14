@@ -81,13 +81,15 @@
     text-align: center;
 }
 
-.delete_div {
+.delete-film-div,
+.delete-user-div {
     width: 100%;
     display: block;
     text-align: center;
 }
 
-.delete_div button {
+.delete-film-div button,
+.delete-user-div button {
     margin-top: 20px;
     margin-left: 10px;
     font-size: 16px;
@@ -95,21 +97,25 @@
     height: 30px;
 }
 
-.delete_div input[type="text"] {
+.delete-film-div input[type="text"],
+.delete-user-div input[type="text"] {
     margin-left: 10px;
     font-size: 16px;
     width: 90%;
     height: 30px;
 }
 
-.delete_div button:hover {
+.delete-film-div button:hover,
+.delete-user-div button:hover {
     background: rgb(145, 140, 140);
 }
 
-.delete_div button:focus {
+.delete-film-div button:focus,
+.delete-user-div button:focus {
     border: none;
 }
 
-.delete_div button:active {
+.delete-film-div button:active,
+.delete-user-div button:active {
     border: solid rgb(73, 68, 68);
 }
