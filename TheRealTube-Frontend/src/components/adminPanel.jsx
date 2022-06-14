@@ -138,7 +138,7 @@ export default function AdminPanel() {
         })
         if (email.match(regex)) {
             if (userEmails.includes(email)) {
-                var selectedUser = users.filter(el => el.email == email);
+                var selectedUser = users.filter(el => el.email === email);
                 var userId = selectedUser[0]['id'];
                 UserService.deleteUser(userId);
                 setModalSuccDelUser(true);
